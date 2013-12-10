@@ -1,2 +1,0 @@
-../collectd.conf etc/collectd/
-../thresholds.conf ../filters.conf etc/collectd/
