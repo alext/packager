@@ -1,0 +1,69 @@
+Source: xmltv
+Section: interpreters
+Priority: optional
+Maintainer: Alex Tomlins <alex@tomlins.org.uk>
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: perl, perl-modules, libwww-perl (>= 5.65), libxml-parser-perl (>= 2.34), libxml-twig-perl (>= 3.28), libxml-writer-perl (>= 0.6), libdate-manip-perl (>= 5.42a), libarchive-zip-perl (>= 1.14), libio-compress-perl, libhtml-parser-perl (>= 3.34), libhtml-tableextract-perl, libhtml-tree-perl (>= 3.17), libhttp-cache-transparent-perl (>= 1.0), libio-stringy-perl, libsoap-lite-perl, libterm-readkey-perl, libtext-kakasi-perl, perl-tk, libtk-tablematrix-perl, libwww-mechanize-perl (>= 1.02), libxml-libxml-perl, libterm-progressbar-perl (>= 2.09), liblingua-preferred-perl (>= 0.2.4), libunicode-string-perl, liblog-tracemessages-perl, libfile-slurp-perl, libxml-simple-perl, libtext-bidi-perl, libxml-dom-perl, libxml-libxslt-perl, libdatetime-format-strptime-perl, libparse-recdescent-perl, libtext-iconv-perl, libjson-perl, libdata-dump-perl, liblinux-dvb-perl [linux-any], libdatetime-perl, libdatetime-timezone-perl, libdatetime-format-iso8601-perl
+Standards-Version: 3.9.3
+Vcs-Browser: https://github.com/alext/xmltv
+Vcs-Git: git://github.com/alext/xmltv.git
+Homepage: http://xmltv.org/
+
+Package: xmltv
+Architecture: all
+Depends: libxmltv-perl (= ${source:Version}), xmltv-util (= ${source:Version}), xmltv-gui (= ${source:Version}), ${misc:Depends}, ${perl:Depends}
+Conflicts: libxmltv-perl (<< 0.5.5-1)
+Replaces: libxmltv-perl (<< 0.5.5-1)
+Description: Functionality related to the XMLTV file format for TV listings
+ Gather television listings, process them and organize your viewing.
+ XMLTV is a file format for storing TV listings, defined in xmltv.dtd.
+ This is a metapackage that installs all of the XMLTV pieces.
+ .
+ This package is intended mainly for end-users who will run XMLTV
+ programs directly.  Maintainers of other packages that rely on XMLTV
+ functionality should consider depending on one or more of the related
+ packages (libxmltv-perl, xmltv-util, xmltv-gui) as needed instead of
+ this metapackage.
+
+Package: libxmltv-perl
+Section: perl
+Architecture: all
+Depends: perl, perl-modules, libwww-perl (>= 5.65), libxml-parser-perl (>= 2.34), libxml-twig-perl (>= 3.28), libxml-writer-perl (>= 0.6), libdate-manip-perl (>= 5.42a), libfile-slurp-perl, ${misc:Depends}, ${perl:Depends}
+Recommends: xmltv-util, libterm-progressbar-perl (>= 2.09), libio-compress-perl, liblingua-preferred-perl (>= 0.2.4)
+Suggests: xmltv-gui, liblog-tracemessages-perl
+Conflicts: xmltv (<< 0.5.5-1)
+Replaces: xmltv (<< 0.5.5-1)
+Description: Perl libraries related to the XMLTV file format for TV listings
+ Gather television listings, process them and organize your viewing.
+ XMLTV is a file format for storing TV listings, defined in xmltv.dtd.
+ This package includes Perl libraries that are part of the XMLTV
+ package, as well as the XML DTD itself.
+
+Package: xmltv-util
+Architecture: all
+Depends: perl, perl-modules, libxmltv-perl (= ${source:Version}), libwww-perl (>= 5.65), libxml-parser-perl (>= 2.34), libxml-twig-perl (>= 3.28), libxml-writer-perl (>= 0.6), libdate-manip-perl (>= 5.42a), libarchive-zip-perl (>= 1.14), libio-compress-perl, libhtml-parser-perl (>= 3.34), libhtml-tableextract-perl, libhtml-tree-perl (>= 3.17), libhttp-cache-transparent-perl (>= 1.0), libio-stringy-perl, libsoap-lite-perl, libterm-readkey-perl, libwww-mechanize-perl (>= 1.02), libxml-libxml-perl, libtext-bidi-perl, libxml-dom-perl, libxml-libxslt-perl, libdatetime-format-strptime-perl, libparse-recdescent-perl, libtext-iconv-perl, libjson-perl, libdata-dump-perl, libdatetime-perl, libdatetime-timezone-perl, libdatetime-format-iso8601-perl, ${misc:Depends}, ${perl:Depends}
+Recommends: libterm-progressbar-perl (>= 2.09), liblingua-preferred-perl (>= 0.2.4), libunicode-string-perl
+Suggests: xmltv-gui, liblog-tracemessages-perl, libtext-kakasi-perl, liblinux-dvb-perl
+Conflicts: xmltv (<< 0.5.5-1), libxmltv-perl (<< 0.5.5-1)
+Replaces: xmltv (<< 0.5.5-1), libxmltv-perl (<< 0.5.5-1)
+Description: Utilities related to the XMLTV file format for TV listings
+ Gather television listings, process them and organize your viewing.
+ XMLTV is a file format for storing TV listings, defined in xmltv.dtd.
+ This package includes general programs that are part of the XMLTV
+ package, such as various "grabbers" to get TV listings from online
+ providers and also utilities to manipulate such listings.
+ .
+ The upstream CGI (web) front-end example is also included as part of
+ the documentation.
+
+Package: xmltv-gui
+Architecture: all
+Depends: perl, perl-modules, libxmltv-perl (= ${source:Version}), xmltv-util (= ${source:Version}), libwww-perl (>= 5.65), libxml-parser-perl (>= 2.34), libxml-twig-perl (>= 3.10), libxml-writer-perl (>= 0.6), libdate-manip-perl (>= 5.42a), perl-tk, libtk-tablematrix-perl, ${misc:Depends}, ${perl:Depends}
+Conflicts: xmltv (<< 0.5.5-1), libxmltv-perl (<< 0.5.5-1)
+Replaces: xmltv (<< 0.5.5-1), libxmltv-perl (<< 0.5.5-1)
+Description: Graphical user interface related to the XMLTV file format
+ Gather television listings, process them and organize your viewing.
+ XMLTV is a file format for storing TV listings, defined in xmltv.dtd.
+ This package includes the GUI (graphical user interface) front-end 
+ program tv_check.
+

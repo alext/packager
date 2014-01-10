@@ -1,0 +1,940 @@
+xmltv (0.5.63-2ppa2) precise; urgency=low
+
+  * Update maintainer to reflect this is now in a PPA
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Fri, 07 Jun 2013 13:21:24 +0100
+
+xmltv (0.5.63-2ppa1) precise; urgency=low
+
+  * Backported to precise
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Thu, 06 Jun 2013 20:11:50 +0100
+
+xmltv (0.5.63-2) unstable; urgency=low
+
+  * Apply patch from upstream CVS to fix tv_grab_hu_ro, thanks to POJAR GEORGE
+    for the report (closes: #679378)
+
+ -- Chris Butler <chrisb@debian.org>  Sat, 30 Jun 2012 02:15:27 +0100
+
+xmltv (0.5.63-1) unstable; urgency=low
+
+  * New upstream release
+    - fixed bug in tv_grab_uk_rt that stopped --configure from working with
+      no existing configuration
+    - fixed tv_grab_combiner to cope with the first source returning no
+      programmes, thanks to Jan-Pascal van Best for the patch 
+      (closes: #663199)
+    - removed broken grabbers: dtv_la, ee, es_miguiatv, nl, pt
+
+  * Removed patch fixing pod2man errors (fixed upstream)
+
+ -- Chris Butler <chrisb@debian.org>  Fri, 15 Jun 2012 22:42:20 +0100
+
+xmltv (0.5.62-1) unstable; urgency=low
+
+  * New upstream release
+    - removed grabbers: fi_sv (can be replaced by fi)
+    - (re)added grabbers: na_dd, eu_egon, se_tvzon
+    - new dependencies required: libdatetime-perl, libdatetime-timezone-perl,
+      libdatetime-format-iso8601-perl
+  * Added liblinux-dvb-perl build-dependency back for linux architectures
+    (closes: #665455)
+  * replaced libcompress-zlib-perl dependency with libio-compress-perl
+  * added patch to fix pod2man errors
+  * Upped Standards-Version to 3.9.3 (no changes required)
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 12 Jun 2012 01:43:32 +0100
+
+xmltv (0.5.61-1) unstable; urgency=low
+
+  * New upstream release
+  	- removed tv_grab_fi patch, now released upstream 
+    - (re)added grabbers: ar, fr_kazer
+    - removed non-functional grabbers: na_dtv, re
+    - added (build-)dep on libjson-perl (required by new fi grabber)
+    - added (build-)dep on libdata-dump-perl (required by it_dvb)
+  * Refreshed patches
+  * Upped Standards-Version to 3.9.2 (no changes required)
+
+ -- Chris Butler <chrisb@debian.org>  Fri, 19 Aug 2011 23:32:44 +0100
+
+xmltv (0.5.59-1) unstable; urgency=low
+
+  * New upstream release
+    - added new grabbers: pt_meo and fi_sv
+  * Refreshed patches
+  * Fixed tv_grab_fi by updating to revision 1.58 from upstream CVS 
+    (closes: #605467)
+
+ -- Chris Butler <chrisb@debian.org>  Mon, 29 Nov 2010 19:43:10 +0000
+
+xmltv (0.5.58-1) experimental; urgency=low
+
+  * New upstream release
+    - tv_grab_ar temporarily removed due to site changes.
+  * Add missing 'import' statement to tv_grab_it_dvb warning patch.
+  * Removed 05_grab_nl_icons_usage.diff, 10_tv_pick_cgi_docfix.diff,
+    12_tv_grab_pt_unicode.diff, 16_pod_name_descriptions.diff and
+    makefile_pl_opt_exclude patches; applied upstream.
+
+ -- Chris Butler <chrisb@debian.org>  Wed, 08 Sep 2010 00:14:16 +0100
+
+xmltv (0.5.57-3) unstable; urgency=low
+
+  * Added missing (build-)dependency on libtext-iconv-perl (closes: #582781)
+  * Reverted previous nonsensical change (doesn't work given xmltv is
+    arch:all!). Moved liblinux-dvb-perl to Suggests instead, and patched
+    tv_grab_it_dvb to die with an explaination on non-linux platforms.
+
+ -- Chris Butler <chrisb@debian.org>  Sun, 23 May 2010 19:21:05 +0100
+
+xmltv (0.5.57-2) unstable; urgency=low
+
+  * Do not install tv_grab_it_dvb on non-linux ports, requires
+    liblinux-dvb-perl which is linux-only. Build-deps updated appropriately.
+
+ -- Chris Butler <chrisb@debian.org>  Sat, 22 May 2010 17:26:38 +0100
+
+xmltv (0.5.57-1) unstable; urgency=low
+
+  * New upstream release
+  * Also removed build-dep on quilt.
+  * Removed accidental duplication in xmltv.dtd (closes: #576732)
+  * Removed disable_it_dvb patch, as liblinux-dvb-perl is now available in
+    Debian. Added build-dep on liblinux-dvb-perl.
+  * Removed patches for tv_grab_jp, as this grabber has been removed upstream.
+  * Removed lib_tz_manip patch, integrated upstream.
+  * Update patches with DEP-3 headers.
+  * Refreshed patches
+  * Corrected debhelper build-dependency (7.0.50 required for overrides)
+  * Added dependency on libparse-recdescent-perl
+  * Removed obsolete debian/README.source file.
+
+ -- Chris Butler <chrisb@debian.org>  Thu, 22 Apr 2010 00:12:01 +0100
+
+xmltv (0.5.56+cvs20100328-1) experimental; urgency=low
+
+  * Experimental snapshot of latest upstream CVS
+    + includes a patch that works around problems with Date::Manip version 6
+      (closes: #560663, #560300)
+    + new grabbers: tv_grab_il, tv_grab_in
+    + resurrected tv_grab_nl
+  * Updated to source format 3.0 (quilt), removed --with quilt from dh
+    invocation
+  * Moved packaging into git, updated debian/control accordingly
+  * Dropped 04_makefile_pl_fix.diff patch; it no longer seems to be required
+    with current MakeMaker.
+  * Remove unneeded patch, refresh others
+  * Upped Standards-Version to 3.8.4, removed versioned perl dependency and
+    replaced with ${perl:Depends}
+
+ -- Chris Butler <chrisb@debian.org>  Sun, 28 Mar 2010 13:18:24 +0100
+
+xmltv (0.5.56-1) unstable; urgency=low
+
+  * New upstream release
+    - tv_grab_uk_rt: improve UTF8 support, improve actor support
+    - tv_grab_huro:   Add Slovakian episode parsing
+    - tv_grab_za:     South African grabber fixed
+  * Disabled grab/it_dvb as Linux::DVB module is currently not packaged
+    for Debian
+  * Refreshed nl_icons usage patch
+  * Added libdatetime-format-strptime-perl to (Build-)Depends
+  * Migrated packaging to dh
+  * Updated to Standards-Version 3.8.2 (no changes required)
+
+ -- Chris Butler <chrisb@debian.org>  Sat, 15 Aug 2009 11:24:58 +0100
+
+xmltv (0.5.55-1) unstable; urgency=low
+
+  * New upstream release
+    - debian/xmltv-util.install: removed broken grabbers tv_grab_br_net,
+      tv_grab_es, tv_grab_za, and tv_grab_jp
+  * Removed tv_grab_it patch
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 17 Mar 2009 11:59:59 +0000
+
+xmltv (0.5.54-1) unstable; urgency=low
+
+  * New upstream release (closes: #513530)
+    - debian/xmltv-util.install: tv_grab_be has been removed as the source
+      website is blocking it.
+  * Migrated from dpatch to quilt
+  * Upgraded tv_grab_it to upstream CVS revision 1.65 to account for source
+    website changes (closes: #457928, #514407)
+
+ -- Chris Butler <chrisb@debian.org>  Wed, 14 Jan 2009 10:37:25 +0000
+
+xmltv (0.5.53-1) unstable; urgency=low
+
+  * Note: this package was not uploaded to Debian during the Lenny freeze
+    period.
+
+  * New upstream release
+    - debian/xmltv-util.install: Added tv_extractinfo_ar, tv_grab_is and
+      tv_grab_dk_dr. Removed tv_grab_dk.
+    - Added libxml-dom-perl and libxml-libxslt-perl to build-deps +
+      dependencies (required by new tv_grab_is)
+
+  * Fixed typo in debian/control (Vcs-Browse/Vcs-Browser)
+  * Resolved a problem with debian/rules that was causing the tests not to be
+    run by default.
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 15 Jul 2008 09:41:09 +0100
+
+xmltv (0.5.52-1) unstable; urgency=low
+
+  * New upstream release
+    - tv_grab_il and tv_grab_nl_wolf have been removed as they are not
+      currently functional
+    - error reporting in tv_grab_uk_rt has been improved (closes: #472466)
+  * Moved all the debian-specific changes to debian/patches instead of having
+    half of them in the .diff.gz
+  * Downgraded libtext-kakasi-perl from a Recommends to a Suggests, now that
+    apt installs recommends by default.
+  * Removed the -C option from the hashbang of tv_grab_jp and use binmode to
+    set utf8 mode on STDOUT (closes: #481816)
+  * Added descriptions to the NAME section of the pod documentation (removes
+    lintian warning)
+  * Upped Standards-Version to 3.8.0
+    - added debian/README.source file
+
+ -- Chris Butler <chrisb@debian.org>  Mon, 14 Jul 2008 14:23:45 +0100
+
+xmltv (0.5.51-2) unstable; urgency=low
+
+  * Due to a problem with subversion a buggy version of tv_grab_uk_rt
+    was released in the last version of the package. This upload
+    includes the fixed version.
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 19 Feb 2008 10:05:09 +0000
+
+xmltv (0.5.51-1) unstable; urgency=low
+
+  * New upstream release
+    - Added versioned dependency on libhttp-cache-transparent-perl 1.0
+
+ -- Chris Butler <chrisb@debian.org>  Mon, 18 Feb 2008 19:38:33 +0000
+
+xmltv (0.5.50-1) unstable; urgency=low
+
+  * New upstream release
+    - tv_grab_il now uses Text::Bidi instead of Locale::Hebrew so it can now
+      be included in the package (closes: #432748)
+
+ -- Chris Butler <chrisb@debian.org>  Tue,  6 Nov 2007 17:05:04 +0000
+
+xmltv (0.5.49-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Chris Butler <chrisb@debian.org>  Mon,  1 Oct 2007 15:18:13 +0100
+
+xmltv (0.5.48-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 21 Aug 2007 09:49:25 +0100
+
+xmltv (0.5.47-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Chris Butler <chrisb@debian.org>  Thu,  2 Aug 2007 12:06:32 +0100
+
+xmltv (0.5.46-2) unstable; urgency=low
+
+  * Changed Source-Version to source:Version in the control file
+  * Updated tv_grab_uk_rt with a workaround for duplicate channel
+    names on Radio Times site
+  * Upped versioned dependency on libterm-progressbar-perl to 2.09 as
+    tv_grab_uk_rt requires that version of the API.
+
+ -- Chris Butler <chrisb@debian.org>  Wed, 11 Jul 2007 22:29:45 +0100
+
+xmltv (0.5.46-1) unstable; urgency=low
+
+  * New upstream release
+  * Modified tv_grab_pt to use the Encode module and remove the
+    Unicode::UTF8Simple dependency, which means it can be included in the
+    package
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 10 Jul 2007 14:10:52 +0100
+
+xmltv (0.5.45-5) unstable; urgency=low
+
+  * Improved error message in tv_validate_file (closes: #429768)
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 19 Jun 2007 20:21:10 +0100
+
+xmltv (0.5.45-4) unstable; urgency=low
+
+  * Added libfile-slurp-perl to Depends and prereqs in Makefile.PL 
+    (closes: #428262)
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 12 Jun 2007 15:00:23 +0100
+
+xmltv (0.5.45-3) unstable; urgency=low
+
+  * Updated tv_grab_de_tvtoday to cope with website changes (closes:
+    #417077)
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 15 May 2007 14:19:37 +0100
+
+xmltv (0.5.45-2) unstable; urgency=low
+
+  * Added patch for tv_grab_fi / HTML::TreeBuilder incompatibility 
+    (closes: #412765)
+  * Also removed obsolete patches from the diff.
+
+ -- Chris Butler <chrisb@debian.org>  Thu,  8 Mar 2007 14:21:05 +0000
+
+xmltv (0.5.45-1) unstable; urgency=low
+
+  * New upstream release (closes: #402731)
+  * Incorporated changes from NMU (closes: #395878)
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 30 Jan 2007 14:17:25 +0000
+
+xmltv (0.5.44-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Increment versioned Depends on lib-xml-writer-perl 
+  (closes: #394154, #379112)
+  * Update na_dd so that it works with new format (closes: #395567, #384808)
+
+ -- Stephen Gran <sgran@debian.org>  Sat, 28 Oct 2006 11:06:36 +0100
+
+xmltv (0.5.44-1) unstable; urgency=low
+
+  * New upstream release
+    - Added tv_grab_es_laguiatv to debian/xmltv-util.install
+    - Removed tv_grab_ch from debian/xmltv-util.install
+    - Fixes title handling in tv_grab_de_tvtoday (closes: #374506)
+  * Fixed ProgressBar::None so that it works with the old ProgressBar
+    API version as well as the new (closes: #372693)
+  * Updated package to standards-version 3.7.2
+
+ -- Chris Butler <chrisb@debian.org>  Sun,  2 Jul 2006 11:16:52 +0100
+
+xmltv (0.5.43-1) unstable; urgency=low
+
+  * New upstream release
+    - debian/xmltv-util.install: removed tv_grab_se and tv_grab_au; added
+      tv_grab_br_net, tv_find_grabbers, tv_validate_grabber, tv_validate_file.
+    - Makefile.PL: commented out tv_grab_il due to its dependency on
+      Locale::Hebrew, which is not in Debian
+  * Updated usage for tv_grab_na_icons (closes: #362945)
+  * Updated tv_grab_de_tvtoday for changes to website (closes: #369444)
+
+ -- Chris Butler <chrisb@debian.org>  Thu, 27 Apr 2006 13:48:23 +0100
+
+xmltv (0.5.42-4) unstable; urgency=low
+
+  * Removed entry from NEWS.Debian about package adoption.
+  * grab/de_tvtoday/tv_grab_de_tvtoday.in: Applied fix from CVS that
+    allows grabber to work after website changes (closes: #353671)
+  * grab/uk_rt/tv_grab_uk_rt.in: Replace undefs in option spec with
+    variables, due to changes in Getopt::Long (closes: #352717)
+  * Makefile.PL: Fixed to work with the latest MakeMaker
+
+ -- Chris Butler <chrisb@debian.org>  Mon, 27 Feb 2006 17:13:00 +0000
+
+xmltv (0.5.42-3) unstable; urgency=low
+
+  * xmltv is now using dpatch so that I can incorporate fixes from
+    current cvs in a managable way
+  * grab/fr/tv_grab_fr: Applied fix from CVS (revision 1.36) that reverts back
+    to iso-8859-1, as XML::Parser does not include encoding maps for
+    iso-8859-15. (closes: #349106)
+
+ -- Chris Butler <chrisb@debian.org>  Mon, 23 Jan 2006 17:32:42 +0000
+
+xmltv (0.5.42-2) unstable; urgency=low
+
+  * Adopting the package
+
+ -- Chris Butler <chrisb@debian.org>  Wed, 18 Jan 2006 13:57:20 +0000
+
+xmltv (0.5.42-1) unstable; urgency=low
+
+  * New upstream release.
+    - Upstream release fixes tv_grab_fr grabber (closes: #342103).
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat, 14 Jan 2006 12:37:54 -0600
+
+xmltv (0.5.41-1) unstable; urgency=low
+
+  * New upstream release.
+    - Added tv_grab_au to debian/xmltv-util.install
+    - Added tv_grab_br to debian/xmltv-util.install
+    - Added tv_grab_ch to debian/xmltv-util.install
+    - Added tv_grab_ee to debian/xmltv-util.install
+    - Added tv_grab_is to debian/xmltv-util.install
+    - Added tv_grab_re to debian/xmltv-util.install
+    - Removed tv_grab_es_digital from debian/xmltv-util.install
+    - Removed tv_grab_pt from debian/xmltv-util.install
+    - Commented out install of tv_grab_pt in Makefile.PL.
+  * Fix problems with various grabber manpages.
+    - Add =pod line to top of grab/au/tv_grab_au.in to fix manpage NAME error
+    - Add =pod line to top of grab/re/tv_grab_re to fix manpage NAME error
+    - Create debian/fix_manpages to fix several groff-illegal characters
+    - Call debian/fix_manpages in debian/rules in install rule
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Thu, 17 Nov 2005 12:45:31 -0600
+
+xmltv (0.5.40-2) unstable; urgency=low
+
+  * Pull in upstream CVS to fix broken tv_grab_de_tvtoday (closes: #320409).
+  * Bumped standards version to 3.6.2; no packaging changes.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat,  1 Oct 2005 10:44:04 -0500
+
+xmltv (0.5.40-1) unstable; urgency=low
+
+  * New upstream release.
+    - Added tv_grab_be to debian/xmltv-util.install
+    - Added tv_grab_it to debian/xmltv-util.install
+    - Added tv_grab_za to debian/xmltv-util.install
+    - Added tv_to_potatoe to debian/xmltv-util.install
+  * Rework dependency checks at build again.
+    - Fall back my --strictdeps patch in favor of the one upstream accepted
+    - Change debian/rules to use --strict-deps instead of --strictdeps
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Fri, 10 Jun 2005 10:38:24 -0500
+
+xmltv (0.5.39-3) unstable; urgency=low
+
+  * Clean up tv_grab_na_dd GUI dialog using upstream patch (closes: #307017).
+  * Fix tv_grab_es_digital using patch from Kiko Piris (closes: #307187).
+  * Support multiple regions in tv_grab_jp using upstream CVS (closes: #290010).
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun,  1 May 2005 19:30:23 -0500
+
+xmltv (0.5.39-2) unstable; urgency=low
+
+  * Be more careful with dependencies checks at build.
+    - Add --strictdeps option to Makefile.PL; submit patch to upstream
+    - Now use --strictdeps when building Makefile in debian/rules
+  * Reorganize dependencies again, ugh. (closes: #299340).
+    - Upstream's README was missing some dependencies
+    - Add Build-Depends and Depends on libarchive-zip-perl (>= 1.14)
+    - Add Build-Depends and Depends on libio-stringy-perl
+    - Remove Build-Depends and Depends on libhtml-linkextractor-perl
+    - Reorder dependencies to match new lists in upstream CVS
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Wed, 16 Mar 2005 16:22:11 -0600
+
+xmltv (0.5.39-1) unstable; urgency=low
+
+  * New upstream release.
+    - Removed tv_grab_it_lt from debian/xmltv-util.install
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 13 Mar 2005 22:06:44 -0600
+
+xmltv (0.5.38-1) unstable; urgency=low
+
+  * New upstream release.
+    - Release includes fixed tv_grab_huro (closes: #287975)
+    - Release includes fixed tv_grab_no (closes: #290033)
+    - Removed tv_grab_it from debian/xmltv-util.install
+    - Added tv_grab_pt to debian/xmltv-util.install
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 23 Jan 2005 21:09:54 -0600
+
+xmltv (0.5.37-1) unstable; urgency=low
+
+  * New upstream release.
+    - Release includes fixed tv_grab_no (closes: #282196)
+    - Added tv_grab_se_swedb to debian/xmltv-util.install 
+    - Added tv_grab_it_lt to debian/xmltv-util.install 
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon, 29 Nov 2004 09:34:55 -0600
+
+xmltv (0.5.36-1) unstable; urgency=low
+
+  * New upstream release.
+  * Now Recommend libhttp-cache-transparent-perl for the xmltv-util package.
+  * Tweaked README.Debian to fix comments about packaging structure.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon, 25 Oct 2004 12:30:30 -0500
+
+xmltv (0.5.35-2) unstable; urgency=low
+
+  * Fix bug in tv_grab_it using patch from mailing list (closes: #277849).
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Fri, 22 Oct 2004 17:57:38 -0500
+
+xmltv (0.5.35-1) unstable; urgency=low
+
+  * New upstream release (closes: #276913, request for new version).
+    - tv_grab_na_dd --quiet is now quieter (closes: #255833)
+    - Removed tv_grab_pt from debian/xmltv-util.install 
+    - Added tv_grab_uk_bleb to debian/xmltv-util.install 
+    - Add GUI to list of "fixed" manpages names in Makefile.PL
+  * Integrated tv_grab_uk_rt.in from upstream CVS to fix known bugs.
+  * Integrated grab/uk_rt/channel_ids from upstream CVS.
+  * Created a POD manpage for tv_grab_uk_rt, which didn't have one.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Thu, 21 Oct 2004 10:53:06 -0500
+
+xmltv (0.5.34-3) unstable; urgency=low
+
+   * Fix manpage generation to quiet lintian.
+     - Executable manpages now use .1p extension
+     - Changed Makefile.PL to generate the correct extension
+     - Changed debian/*.install to install .1p files as needed
+   * Fix dependency problems and clean up in debian/control.
+     - Add missing libhtml-tableextract-perl dependencies (closes: #254609)
+     - Reorder all dependency lists to match upstream notes in README
+     - Remove python-related dependencies (no longer needed)
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Tue, 15 Jun 2004 16:14:41 -0500
+
+xmltv (0.5.34-2) unstable; urgency=low
+
+  * Fix bug where some grabbers got wrong $SHARE_DIR (closes: #250780).
+    - I guess I missed a change in the way Makefile.PL works
+    - Fix is to set PREFIX=/usr for configure rule in debian/rules
+    - Bug potentially affected tv_grab_de_tvtoday, tv_grab_it, tv_grab_na_dd,
+      tv_grab_na_icons, tv_grab_nl and tv_grab_uk_rt
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon, 24 May 2004 19:06:58 -0500
+
+xmltv (0.5.34-1) unstable; urgency=low
+
+  * New upstream release.
+    - Remove --components=all logic from upstream's Makefile.PL
+    - Now use --yes in debian/rules rather than --components=all
+    - Removed tv_grab_nz from debian/xmltv-util.install 
+    - Removed tv_grab_hu from debian/xmltv-util.install 
+    - Added tv_grab_huro to debian/xmltv-util.install 
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 23 May 2004 15:23:56 -0500
+
+xmltv (0.5.33-1) unstable; urgency=low
+
+  * New upstream release.
+    - Modified upstream Makefile.PL for better fit with Debian
+    - Added -components=all to Makefile.PL command in debian/rules
+    - Removed tv_grab_na from debian/xmltv-util.install 
+    - Added tv_grab_na_icons to debian/xmltv-util.install 
+    - Tweaked POD documentation in tv_grab_na_icons; submitted upstream
+    - Changed debian/control to add Build-Depends on libwww-mechanize-perl
+    - Changed debian/control to add xmltv-util Depends on libwww-mechanize-perl
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat,  8 May 2004 12:04:24 -0500
+
+xmltv (0.5.32-2) unstable; urgency=low
+
+  * Added tv_grab_no script now that HTML::LinkExtractor is available.
+    - Uncommented installer section in Makefile.PL.
+    - Changed debian/control to add Build-Depends on libhtml-linkextractor-perl
+    - Changed debian/control to add xmltv-util Depends on libhtml-linkextractor-perl
+    - Added tv_grab_no to debian/xmltv-util.install.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Thu, 22 Apr 2004 20:45:16 -0500
+
+xmltv (0.5.32-1) unstable; urgency=low
+
+  * New upstream release.
+    - Added "lost" tv_grab_fr clause back into Makefile.PL
+    - Release includes requested new tv_grab_uk_rt (closes: #243933)
+    - Commented tv_grab_no out of Makefile.PL; missing dependency
+    - Added tv_grab_pt to debian/xmltv-util.install 
+  * Now use 'dh_install --fail-missing' in debian/rules.
+    - This is stronger than the old --list-missing
+    - Changed version to (>= 4.1.75) for debhelper entry in debian/control
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat, 17 Apr 2004 10:59:56 -0500
+
+xmltv (0.5.31-3) unstable; urgency=low
+
+  * Fixed "uninitialized value" bug in tv_grab_na_dd (closes: #239933).
+    - Bug was caused by incompatibility with newer XML::Twig releases
+    - I pulled in version 1.24 from upstream's CVS to get the fix
+  * Made libtext-kakasi-perl recommended, not required (closes: #239889).
+    - Package drags along large dependencies needed by very few users
+    - Changed tv_grab_jp to say "install libtext-kakasi-perl" if missing
+    - Added DEBIAN-SPECIFIC BEHAVIOR section to tv_grab_jp manpage
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon,  5 Apr 2004 19:02:15 -0500
+
+xmltv (0.5.31-2) unstable; urgency=low
+
+  * Fixed NEWS.Debian file, which used a non-standard format.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Tue, 23 Mar 2004 23:19:26 -0600
+
+xmltv (0.5.31-1) unstable; urgency=low
+
+  * New upstream release.
+    - Added debian/NEWS.Debian file
+    - Added section about missing grabbers to debian/README.Debian
+    - Changed debian/control to add Build-Depends on libsoap-lite-perl
+    - Changed debian/control to add xmltv-util Depends on libsoap-lite-perl
+    - Changed version to (>= 3.10) for all libxml-twig-perl entries in debian/control
+    - Added tv_grab_na_dd to debian/xmltv-util.install
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 21 Mar 2004 19:57:45 -0600
+
+xmltv (0.5.30-1) unstable; urgency=low
+
+  * New upstream release.
+    - Clarified recommended/required packages in debian/README.Debian
+    - Put upstream XML::Writer check back into Makefile.PL.
+    - Added tv_grab_jp to debian/xmltv-util.install 
+    - Added tv_grab_de_tvtoday to debian/xmltv-util.install
+    - Added tv_grab_se to debian/xmltv-util.install
+    - Added tv_grab_fr to debian/xmltv-util.install
+    - Changed debian/control to add Build-Depends on libtext-kakasi-perl
+    - Changed debian/control to add Build-Depends on libxml-libxml-perl
+    - Changed debian/control to add xmltv-util Depends on libtext-kakasi-perl
+    - Changed debian/control to add xmltv-util Depends on libxml-libxml-perl
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun,  7 Mar 2004 18:34:50 -0600
+
+xmltv (0.5.29-1) unstable; urgency=low
+
+  * New upstream release.
+    - Added new script tv_grab_es_digital and manpage to xmltv-util.install
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 15 Feb 2004 12:29:28 -0600
+
+xmltv (0.5.28-1) unstable; urgency=low
+
+  * New upstream release.
+    - Removed libxml-simple-perl from all dependencies (no longer needed)
+    - Removed libhtml-tableextract-perl from all dependencies (no longer needed)
+    - Removed liblingua-en-numbers-ordinate-perl from all dependencies (not really used)
+    - Removed all references to tv_grab_uk, which no longer has an upstream data source
+    - Removed references to Lingua::EN::Numbers::Ordinate in Makefile.PL
+    - Added previously-missing dependency on libxml-parser-perl (>= 2.34)
+    - Now use version (>= 0.4-10) for all libxml-writer-perl control entries
+    - Now use (>= 5.42a) for all libdate-manip-perl control entries 
+    - Downgraded liblog-tracemessages-perl from Recommends to Suggests everywhere
+    - Make Depends/Recommends/Suggests lines more consistent between all packages
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon,  2 Feb 2004 15:01:44 -0600
+
+xmltv (0.5.27-1) unstable; urgency=low
+
+  * New upstream release (skipped 0.5.26).
+    - Removed version-specific dependency on XML::Writer in Makefile.PL
+    - Tweak list of XMLTV:: manpages in Makefile.PL (submitted upstream)
+    - Fixed pod in XMLTV::Date so manpage comes out right (submitted upstream)
+    - Added version (>= 0.2.4) to liblingua-preferred-perl dependency
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon,  5 Jan 2004 12:45:22 -0600
+
+xmltv (0.5.25-1) unstable; urgency=low
+
+  * New upstream release (skipped 0.5.24).
+    - Removed tv_grab_sn and tv_grab_de entries from xmltv-util.install
+    - Removed Debian-specific t/test_filters.t fix for #213948 (see below)
+    - Commented-out tv_grab_de piece in Makefile.PL (back to upstream form)
+    - Added version (>= 2.03) to libterm-progressbar-perl dependency
+    - Added version (>= 3.34) to libhtml-parser-perl dependency
+    - Added version (>= 5.65) to libwww-perl dependency
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Wed, 10 Dec 2003 11:02:09 -0600
+
+xmltv (0.5.23-1) unstable; urgency=low
+
+  * New upstream release.
+    - Release fixes reported problems with zap2it listing provider.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Thu, 20 Nov 2003 13:42:58 -0600
+
+xmltv (0.5.22-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun,  9 Nov 2003 19:31:49 -0600
+
+xmltv (0.5.21-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Tue,  4 Nov 2003 10:23:53 -0600
+
+xmltv (0.5.20-1) unstable; urgency=low
+
+  * New upstream release.
+    - Release fixes daylight savings time problems (closes: #217711).
+    - Release incorporates Debian fix for #213948 (see below).
+    - Note: tv_grab_de is installed although it is currently not working.
+    - Updated xmltv-util.install to include tv_remove_some_overlapping script.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun,  2 Nov 2003 18:03:24 -0600
+
+xmltv (0.5.19-2) unstable; urgency=low
+
+  * Update standards version to 3.6.1 per PTS recommendation.
+  * Fix tv_to_latex regression test (closes: #213948).
+    - This problem showed up in pbuilder runs where $LANG was set to 'C'
+    - The Lingua::Preferred module does not recognize 'C' as a language
+    - Modify t/test_filters.t to set $LANG to 'en' before tests are run
+  * Stop referencing outdated libcgi-pm-perl (now provided by perl-modules)
+    - Remove libcgi-pm-perl from Build-Depends-Indep
+    - Remove libcgi-pm-perl from Suggests for base xmltv package
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon,  6 Oct 2003 11:52:29 -0500
+
+xmltv (0.5.19-1) unstable; urgency=low
+
+  * New upstream release.
+    - Note: Zap2It (tv_grab_na listings provider) will block out 
+      pre-0.5.19 users as of 30 Sep 2003!
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 28 Sep 2003 19:05:59 -0500
+
+xmltv (0.5.18-2) unstable; urgency=low
+ 
+  * Use ${Source-Version} in debian/control to make all packages get 
+    upgraded together (closes: #211423).
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat, 27 Sep 2003 19:41:35 -0500
+
+xmltv (0.5.18-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat, 13 Sep 2003 21:35:00 -0500
+
+xmltv (0.5.17-1) unstable; urgency=low
+
+  * New upstream release.
+    - Tweak Makefile.PL again because the interactive part keeps changing
+  * Changed URL in debian/watch to hit UMN's SourceForge mirror directly.
+  * Added XMLTV::Gunzip.3pm into debian/libxmltv-perl.install.
+  * Added tv_grab_nz back into debian/xmltv-util.install.
+  * Removed tv_grab_nz-specific comments in debian/README.Debian.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Wed, 27 Aug 2003 14:17:02 -0500
+
+xmltv (0.5.16-1) unstable; urgency=low
+
+  * New upstream release.
+    - The latest tv_grab_na fixes current problems reading the zap2it site
+    - Note that tv_grab_nz is broken and has been removed (see README.Debian)
+  * Added 'make test' into build in debian/rules, now that it seems to work.
+  * Removed tv_grab_nz lines from debian/xmltv-util.install.
+  * Reworked README.Debian file.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Fri, 15 Aug 2003 12:48:55 -0500
+
+xmltv (0.5.15-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added dependency on libdate-manip-perl (>= 5.42) in debian/control.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon,  7 Jul 2003 14:44:42 -0500
+
+xmltv (0.5.14-1) unstable; urgency=low
+
+  * New upstream release.
+    - New tv_grab_na that deals with zap2it site changes (closes: #199567).
+  * Had to rework Makefile.PL again because of significant upstream changes.
+  * Removed tv_grab_us_gist from debian/xmltv-util.install (provider disappeared).
+  * Added tv_grab_hu and tv_grab_dk to debian/xmltv-util.install (new grabbers).
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Tue,  1 Jul 2003 22:02:26 -0500
+
+xmltv (0.5.10-2) unstable; urgency=low
+
+  * Added versioned dependency on libhtml-tree-perl (>= 3.17) for tv_grab_nl_wolf.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 11 May 2003 22:42:43 -0500
+
+xmltv (0.5.10-1) unstable; urgency=low
+
+  * New upstream release.
+    - tv_imdb no longer requires Term::ProgressBar (closes: #190172).
+  * Updated debian/xmltv-util.install to include new programs.
+  * Updated debian/libxmltv-perl.install to include new programs.
+  * Documented reasons for requiring Perl 5.8 in debian/README.Debian.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 27 Apr 2003 12:07:47 -0500
+
+xmltv (0.5.9-2) unstable; urgency=low
+
+  * Changed debian/control so only libxmltv-perl is in section 'perl'.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun,  6 Apr 2003 23:48:20 -0500
+
+xmltv (0.5.9-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added debian/watch.
+  * Changed section to 'perl' in debian/control.
+  * Updated standards version to 3.5.9 in debian/control.
+  * Updated debian/xmltv-util.install to include new programs.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun,  6 Apr 2003 22:20:01 -0500
+
+xmltv (0.5.8-2) unstable; urgency=low
+
+  * Changed maintainer address from @ieee.org to @debian.org.
+  * Removed DH_COMPAT settting from debian/rules.
+  * Added debian/compat file to replace DH_COMPAT setting.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 30 Mar 2003 13:15:22 -0600
+
+xmltv (0.5.8-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Sat, 15 Feb 2003 20:28:02 -0600
+
+xmltv (0.5.7-1) unstable; urgency=low
+
+  * New upstream release.
+    - Upstream fixes to tv_grab_na (closes: #180096, closes: #176453).
+    - Upstream fixes to tv_grab_de (closes: # 178692).
+  * Now explicitly install README.Debian for all packages.
+  * Changed order of files in xmltv-util.install so that it stays readable.
+  * Moved debian/tv_check.1 manpage info to POD in tv_check itself (submitted to upstream).
+  * Added POD documentation to new tv_to_text script (submitted to upstream).
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Mon, 10 Feb 2003 15:22:26 -0600
+
+xmltv (0.5.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added tv_grab_fi and tv_split to xmltv-util.install file.
+  * Added tv_grab_fi.1 and tv_split.1 manpages to xmltv-util.install file.
+  * Added dependency on libhtml-tree-perl in debian/control for tv_grab_fi.
+  * In xmltv-gui.doc file, now get README.tv_check from choose/tv_check, 
+    and then install tv_check_doc.html and tv_check_doc.jpg from there.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Tue,  7 Jan 2003 17:29:01 -0600
+
+xmltv (0.5.5-4) unstable; urgency=low
+
+  * Removed version-specific Suggests and Recommends lines in debian/control.
+  * Added a .docs file for each package, and removed specific dh_installdocs
+    lines in debian/rules, for consistency.
+  * Removed call to dh_installman in debian/rules; it's more appropriate to use
+    dh_install under these circumstances.
+  * Merged *.manpages into *.install, to go along with change from dh_installman
+    to just dh_install.
+  * Removed modification to XMLTV.3pm in debian/rules, since it's no longer 
+    needed now that dh_installman is not used.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Sun,  5 Jan 2003 16:11:47 -0600
+
+xmltv (0.5.5-3) unstable; urgency=low
+
+  * Updated debian/control to add appropriate Conflicts and Replaces entries
+    for the various new packages, to ensure a smooth upgrade path.
+  * Rearranged the libxmltv-perl package's Recommends and Suggests entries 
+    in debian/control.  Since xmltv-util will almost always be used with 
+    libxmltv-perl, it should be recommended, not just suggested.
+  * Changed the Description entry for the xmltv package in debian/control.
+  * Since the xmltv-gui package won't really be of much use without a grabber 
+    to get data for it, changed debian/control to make xmltv-gui depend on
+    xmltv-util, as well.
+  * Made sure that all Depends, Conflicts, Replaces, Suggested and Recommends
+    lines in debian/control have appropriate version numbers attached to them.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Fri,  3 Jan 2003 12:50:35 -0600
+
+xmltv (0.5.5-2) unstable; urgency=low
+
+  * Changed debian/control Depends lines to require version 1.08-1 or better
+    of libhtml-tableextract-perl (closes: #169792).
+  * Added HTML::TableExtract check back into Makefile.PL.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Thu,  2 Jan 2003 18:21:24 -0600
+
+xmltv (0.5.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * Changed name of source package to 'xmltv' to rectify earlier mistake.
+  * Split grabbers and utilities into their own package, xmltv-util.
+  * Updated README.Debian to match new package structure.
+  * Manpage install is now based on *.manpages files.
+  * Program manpages are now installed as *.1; modules as *.3pm to meet policy.
+  * Dynamically fix .TH section in XMLTV.3pm to please dh_installman.
+  * Files are now split between packages by dh_install, based on *.install files.
+  * Removed libxmltv-perl.dirs and xmltv-gui.dirs, which are no longer needed.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Tue, 31 Dec 2002 09:14:43 -0600
+
+libxmltv-perl (0.5.3-3) unstable; urgency=low
+
+  * Placed tv_pick_cgi into doc/libxmltv-perl/examples (closes: #171806).
+  * Changed debian/control and debian/rules to split tv_check into
+    its own package, xmltv-gui.  This removes libxmltv-perl's 
+    dependency on perl-tk (closes: #172045).
+  * Added README.Debian file.
+  * Added xmltv-gui.dirs file as part of modified build process.
+  * Updated tv_check.1 manpage to refer to xmltv-gui.
+  * Changed debian/control Depends lines to better match requirements
+    and recommendations for Perl packages as provided by upstream.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Tue, 17 Dec 2002 17:38:53 -0600
+
+libxmltv-perl (0.5.3-2) unstable; urgency=low
+
+  * Removed spurious diff (extra newline) from Makefile.PL.
+  * Upgraded debian/control to Standards-Version to 3.5.8.
+  * Changed debian/control Build-Depends-Indep to use perl (>= 5.8.0) instead of (>> 5.8.0).
+  * Changed debian/control Depends to use perl (>= 5.8.0) instead of ${perl:Depends}.
+  * Quieted Lintian by removing the ending period from the Description in debian/control.
+  * Quieted Lintian by removing the (s) from Author(s) in debian/copyright.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Wed,  4 Dec 2002 15:32:48 -0600
+
+libxmltv-perl (0.5.3-1) unstable; urgency=low
+
+  * New upstream release (closes: #169157).
+  * Changed debian/control, debian/copyright to update upstream URL.
+  * Changed debian/control to require libxml-twig-perl 3.09-1 or greater
+    in Depends and not just Build-Depends.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Sun, 24 Nov 2002 20:02:28 -0600
+
+libxmltv-perl (0.5.2-3) unstable; urgency=low
+
+  * Changed debian/copyright to reference /usr/share/common-licenses.
+    Rewrote manpage tv_check.1 to provide complete list of usage.
+    Removed Makefile.PL workaround for libxml-twig-perl, because bug was fixed.
+    Changed debian/control to require libxml-twig-perl 3.09-1 or greater.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Sun,  3 Nov 2002 17:14:57 -0600
+
+libxmltv-perl (0.5.2-2) unstable; urgency=low
+
+  * Fixed bug with manpage installation.
+    Installed xmltv.dtd in /usr/share/sgml/xmltv/dtd.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Thu, 31 Oct 2002 17:18:34 -0600
+
+libxmltv-perl (0.5.2-1) unstable; urgency=low
+
+  * Changed name to libxmltv-perl to better match Perl policy.
+    Moved to new upstream release 0.5.2.
+    Added dependencies on libhtml-tableextract-perl and libxml-twig-perl.
+    Imported sources into CVS properly using -ko to avoid keyword expansion.
+    Tweaked upstream Makefile.PL to work around bug in libxml-twig-perl.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Thu, 31 Oct 2002 10:22:33 -0600
+
+xmltv (0.5-2) unstable; urgency=low
+
+  * Debian packaging clean-up
+    Moved to Perl 5.8, which includes Memoize as part of the base package.
+    Added dependency on libsort-versions-perl, which is needed for the UK software.
+    Added dependency on libhtml-parser-perl for clarity.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Sun,  6 Oct 2002 15:43:44 -0500
+
+xmltv (0.5-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Kenneth J. Pronovici <pronovic@ieee.org>  Mon, 23 Sep 2002 21:33:39 -0500
+

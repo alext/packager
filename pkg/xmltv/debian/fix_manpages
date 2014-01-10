@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Translate certain characters that are problematic for groff in manpages.  
+# These show up within lintian 'manpage-has-errors-from-man' warnings.
+# See 'man groff_char' for more details on the characters themselves.
+
+# Thorn (Þ): decimal 222, hex DE
+sed --in-place "s/\xDE/\\\[TP\]/g" debian/tmp/share/man/man1/tv_grab_is.1p
+
+# aacute (á): decimal 225, hex E1
+sed --in-place "s/\xE1/\\\['a\]/g" debian/tmp/share/man/man1/tv_grab_br.1p
+
+# atilde (ã): decimal 227, hex E3
+sed --in-place "s/\xE3/\\\[~a\]/g" debian/tmp/share/man/man1/tv_grab_br.1p
+
+# ccdilla (ç): decimal 231, hex E7
+sed --in-place "s/\xE7/\\\[,c\]/g" debian/tmp/share/man/man1/tv_grab_br.1p
+
+# eacute (é): decimal 233, hex E9
+sed --in-place "s/\xE9/\\\['e\]/g" debian/tmp/share/man/man1/tv_grab_br.1p
+
+# ecircumflex (ê): decimal 234, hex EA
+sed --in-place "s/\xEA/\\\[^e\]/g" debian/tmp/share/man/man1/tv_grab_br.1p
+
+# iacute (í): decimal 237, hex ED
+sed --in-place "s/\xED/\\\['i\]/g" debian/tmp/share/man/man1/tv_grab_br.1p
+
+# oacute (ó): decimal 243, hex F3
+sed --in-place "s/\xF3/\\\['o\]/g" debian/tmp/share/man/man1/tv_grab_is.1p
+
+# otilde (õ): decimal 245, hex F5
+sed --in-place "s/\xF5/\\\[~o\]/g" debian/tmp/share/man/man1/tv_grab_br.1p
+

@@ -1,0 +1,16 @@
+This package was debianized by Kenneth Pronovici <pronovic@debian.org> on
+Mon, 23 Sep 2002 21:33:39 -0500.
+
+It was downloaded from http://membled.com/work/apps/xmltv/
+
+Upstream Author: Ed Avis <ed@membled.com>
+
+Copyright:
+
+   This is free software distributed under the GPL, see COPYING.  But if
+   you would like to use the code under some other conditions, please do
+   ask.  Contributors include Gottfried Szing, Jerry Veldhuis and Robert
+   Eden.
+
+On Debian systems, the complete text of the GNU General Public License can
+be found in `/usr/share/common-licenses/GPL'.

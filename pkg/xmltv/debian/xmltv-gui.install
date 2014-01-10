@@ -1,0 +1,2 @@
+debian/tmp/usr/bin/tv_check                         usr/bin
+debian/tmp/usr/share/man/man1/tv_check.1p           usr/share/man/man1

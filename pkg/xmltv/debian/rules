@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+PERL=/usr/bin/perl
+
+%:
+	dh $@
+
+override_dh_installchangelogs:
+	dh_installchangelogs -A ChangeLog  # all packages get the upstream changelog
+
+override_dh_install:
+	rm -rf $(CURDIR)/debian/tmp/usr/share/doc/xmltv-*					# We'll install our own documentation
+	dh_install --fail-missing          # see *.install for more information
+
+# I use strict-deps to ensure the package dependencies are correct at build
+# time, but the Linux::DVB module is not available on non-linux systems. This
+# shouldn't affect the package build however.
+ifneq ($(DEB_HOST_ARCH_OS), linux)
+STRICTDEPS := --strict-deps
+else
+STRICTDEPS :=
+endif
+
+override_dh_auto_configure:
+	$(PERL) Makefile.PL --yes $(STRICTDEPS) INSTALLDIRS=vendor PREFIX=/usr   # Give configure process "real" prefix

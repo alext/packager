@@ -1,0 +1,256 @@
+xmltv (0.5.48-1) unstable; urgency=low
+
+   Important notice for all users of the na_dd grabber:
+
+   tv_grab_na_dd now uses Schedules Direct.  New accounts will be needed.
+   See http://schedulesdirect.org or the man page for more info.
+
+   The tv_grab_na_dd in this distribution replaces the old Zap2IT labs based
+   grabber. After you upgrade, you'll need to run --configure again. NA_DD
+   users should not upgrade until they are ready to switch over. 
+
+ -- Chris Butler <chrisb@debian.org>  Tue, 21 Aug 2007 09:51:02 +0100
+
+xmltv (0.5.46-1) unstable; urgency=low
+
+  * Due to copyright issues with the source website, the tv_grab_de_tvtoday
+    grabber has been removed from this release. There is work going on to
+    provide a replacement grabber for Germany, and I will include it in the
+    package as soon as possible.
+
+ -- Chris Butler <chrisb@debian.org>  Wed, 11 Jul 2007 19:14:56 +0100
+
+xmltv (0.5.45-5) unstable; urgency=low
+
+  * The following is taken from a post to the xmltv-announce mailing list by
+    Robert Eden <rmeden@yahoo.com>
+ 
+       On 6/19 Tribune Media announced that they will be discontinuing their
+       Zap2IT Labs service on September 1, 2007.
+ 
+       XMLTV/tv_grab_na_dd uses this for U.S./Canada guide data.
+ 
+    This means that as of September, this grabber will no longer function.
+    Developers are working to arrange an alternative solution.
+ 
+    You can read the full text of the announcement at
+    http://sourceforge.net/mailarchive/message.php?msg_name=161381.30158.qm%40web52110.mail.re2.yahoo.com
+
+ -- Chris Butler <chrisb@debian.org>  Fri, 22 Jun 2007 13:59:53 +0100
+
+xmltv (0.5.42-1) unstable; urgency=low
+
+  * Unfortunately, everyone who expressed interest in this package since I put
+    it up for adoption on October 1 has been unable to follow through and
+    actually take over the package.  Because of this, I've decided to give up
+    trying to find an adopter.  I'm going to continue maintaining XMLTV myself,
+    including the backport to Debian 'sarge'.  The workload has been relatively
+    light lately, so I shouldn't have any problem keeping up with it.
+
+  * This release provides fixes or enhancements for for tv_grab_za, tv_grab_fr,
+    tv_grab_uk_rt, and tv_grab_uk_bleb.  Work is underway to make the grabbers
+    much more "standard" so that PVRs are able to use them in a consistent
+    manner, and this release also includes the beginning of those changes.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat, 14 Jan 2006 12:37:54 -0600
+
+xmltv (0.5.41-1) unstable; urgency=low
+
+  * This package is still up for adoption due to lack of time on my part to
+    properly maintain it.  I am looking for a Debian developer (or a non-DD
+    with an existing sponsor) to take the package over.  I am sorry, but I do
+    not currently have time to act as a sponsor for a non-DD.  
+
+  * Six new grabbers have been added in this release: tv_grab_au, tv_grab_br,
+    tv_grab_ch, tv_grab_ee, tv_grab_is, and tv_grab_re.  All of these grabbers
+    should be considered experimental according to the upstream README.
+
+  * The tv_grab_es_digital grabber has been removed from this release because
+    it no longer works.  The tv_grab_pt grabber has been removed because it
+    requires Unicode::UTF8Simple, which is not in Debian.  I do not currently
+    have time to package any new XMLTV-related dependencies.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Thu, 17 Nov 2005 12:45:31 -0600
+
+xmltv (0.5.40-2) unstable; urgency=low
+
+  * I have put this package up for adoption (see bug #331108).  My time is 
+    becoming limited, and since none of my friends use XMLTV any more -- and I
+    never have really used it -- I don't have much motivation to work on it.
+    If you have interest in taking it over, please coordinate with me to make
+    it happen.  I will stay on as co-maintainer if need be, but I would prefer
+    to avoid responsibility for sponsored uploads, which actually take more
+    time than just maintaining the package in the first place.
+
+  * I apologize that it's taken so long to get a new CVS version of
+    tv_grab_de_tvtoday installed in this package.  A year ago, it was almost
+    never worth making Debian-specific fixes myself, because upstream released
+    so frequently.  That doesn't seem to be the right approach any more.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat,  1 Oct 2005 10:44:04 -0500
+
+xmltv (0.5.40-1) unstable; urgency=low
+
+  * Unfortunately, 0.5.39-3 did not make it into Sarge.  Sorry about that.
+
+  * There is a new utility in this release.  The tv_grab_potaoe utility
+    converts XMLTV listings to potatoe format.
+
+  * There are three new grabbers in this release (or rather, two new grabbers
+    and one rewritten grabber).  The tv_grab_be grabber grabs listing for
+    Belgium.  The tv_grab_it grabber grabs listings for Italy.  The tv_grab_za
+    grabber grabs listings for South Africa.  These grabbers should be
+    considered experimental.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Fri, 10 Jun 2005 10:38:24 -0500
+
+xmltv (0.5.39-3) unstable; urgency=low
+
+  * Since a new upstream release doesn't seem to be coming any time soon, I've
+    taken the liberty of incorporating a few upstream fixes into a Debian-only
+    release to close a few bugs.  I'm not sure whether this release will make
+    it into Sarge or not, sorry.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun,  1 May 2005 19:30:23 -0500
+
+xmltv (0.5.39-1) unstable; urgency=low
+
+  * The tv_grab_it_lt grabber has been removed in this release, because it
+    is not currently working.  This leaves no working grabber for Italy.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 13 Mar 2005 22:06:44 -0600
+
+xmltv (0.5.38-1) unstable; urgency=low
+
+  * This release adds the tv_grab_pt grabber for Portugal.
+  * The tv_grab_it grabber has been removed in this release, since the 
+    upstream data source is not currently working.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 23 Jan 2005 21:09:54 -0600
+
+xmltv (0.5.37-1) unstable; urgency=low
+
+  * There are two new grabbers: tv_grab_se_swedb, grabs listings for Sweden
+    and tv_grab_it_lt is an alternative grabber for Italy.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon, 29 Nov 2004 09:34:55 -0600
+
+xmltv (0.5.36-1) unstable; urgency=low
+
+  * "Experimental" HTTP caching is now available for some grabbers.  See the
+    upstream README for more details on how to enable it.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon, 25 Oct 2004 12:30:30 -0500
+
+xmltv (0.5.35-1) unstable; urgency=low
+
+  * I apologize that this release is so late.  Upstream noticed almost
+    immediately that 0.5.35 was partly broken (tv_grab_uk_rt, see below) and
+    said they were going to release 0.5.36 "soon".  That didn't happen.
+
+  * The tv_grab_uk_rt grabber works again, because the website it grabs from
+    kindly started providing machine-readable data to replace the web feed.
+    However, radio listings are no longer available.  Note that I have
+    integrated in changes from upstream CVS, since the official version in
+    0.5.35 was broken.
+
+  * The tv_grab_pt grabber has been removed because the site it grabbed from is
+    defunct.
+  
+  * There is a new grabber, tv_grab_uk_bleb, which grabs UK listings from
+    bleb.org.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Thu, 21 Oct 2004 10:53:06 -0500
+
+xmltv (0.5.34-1) unstable; urgency=low
+
+  * The tv_grab_nz grabber is now gone.  As discussed in the NEWS for 
+    the 0.5.32-1 release, this grabber is now maintained by the PyTVGrab
+    SourceForge project.
+  
+  * The tv_grab_hu grabber has been replaced with the tv_grab_huro grabber,
+    which grabs listings for Hungary and Romania.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sun, 23 May 2004 15:23:56 -0500
+
+xmltv (0.5.33-1) unstable; urgency=low
+
+  * The tv_grab_na grabber has been officially retired from this package.
+    People who previously used tv_grab_na should use tv_grab_na_dd instead.
+    New tv_grab_na_dd users are strongly encouraged to read the man page.
+    Don't forget about the --old-chan-id switch if you depend on tv_grab_na
+    channel IDs.
+
+  * The tv_grab_na_icons grabber is now included in this package.  Use it
+    (occassionally) to grab icons off the Zap2It site.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat,  8 May 2004 12:04:24 -0500
+
+xmltv (0.5.32-2) unstable; urgency=low
+
+   * The tv_grab_no grabber is now included in this package. 
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Thu, 22 Apr 2004 20:45:16 -0500
+
+xmltv (0.5.32-1) unstable; urgency=low
+
+  * The tv_grab_na North America grabber will be retired after this release.
+
+  * The Python-based tv_grab_nz grabber will be removed in a future release
+    because it is now part of the PyTVGrab SourceForge project.  XMLTV will not
+    support Python-based grabbers in the future.  As of this writing, I do not
+    intend to package PyTVGrab for Debian.
+
+  * The tv_grab_na_dd grabber is now "official", and effort will be made from
+    this point forward to maintain compatibility.  See notes in the upstream
+    README for more information. 
+
+  * This upstream release includes two new grabbers, tv_grab_pt for Portuagal
+    and tv_grab_no for Norway.  The tv_grab_no grabber has not yet been
+    included in the Debian package because it depends on HTML::LinkExtractor,
+    which I am in the process of packaging for Debian.  I will release a new
+    version of the XMLTV packages whenever libhtml-linkextractor-perl makes it
+    into the archive.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Sat, 17 Apr 2004 10:59:56 -0500
+
+xmltv (0.5.31-3) unstable; urgency=low
+
+  * I forgot to mention along with 0.5.31-2 that the tv_grab_na_dd grabber
+    should be considered experimental.  However, I have generally heard good
+    things about it, and I expect it to stabilize quickly.
+
+  * With this release, tv_grab_na_dd grabber has been fixed so that it now
+    works with newer versions of XML::Twig.  I did this by grabbing version
+    1.24 out of upstream's CVS, as suggested by Aubin Paul.  I couldn't pull in
+    anything much newer than 1.24, because newer versions of the script depend
+    on the upcoming 0.5.32 release of XMLTV.pm.  Since this isn't a released
+    version of the script, it might not be completely stable.  However, it
+    should at least work better than the previous version did.
+  
+  * Per Marco d'Itri's request (bug #239889), the libtext-kakasi-perl package is
+    now recommended rather than required.   This means that users of the
+    tv_grab_jp grabber will need to install the libtext-kakasi-perl package by
+    hand if they choose not to install all recommended packages.   I would
+    really rather not do this.  However, the dependency on libtext-kakasi-perl
+    results in download of the kakasi-dic package, which is really large.  I am
+    forced to agree with Marco that I should not be requiring all users to
+    download this large package when only very few users will need it.  Please
+    email me if you have a convincing argument to the contrary.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Mon,  5 Apr 2004 19:02:15 -0500
+
+xmltv (0.5.31-2) unstable; urgency=low
+
+  * The 0.5.31 release adds a new grabber, tv_grab_na_dd.  Users of
+    the existing tv_grab_na grabber should migrate to the new grabber as soon
+    as possible, as the existing one will be removed in a future release.  The
+    new grabber is much faster than the old one and also places much less load
+    on Zap2It's servers.  (Besides that, Zap2it has been very generous in
+    providing this service rather than just blocking tv_grab_na.)
+
+  * If your grabber is "missing" and you don't understand why, please see
+    README.Debian for more information.
+
+ -- Kenneth J. Pronovici <pronovic@debian.org>  Tue, 23 Mar 2004 23:19:26 -0600
+

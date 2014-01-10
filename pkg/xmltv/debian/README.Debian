@@ -1,0 +1,112 @@
+REQUIRED AND RECOMMENDED DEPENDENCIES
+
+Note that for this Debian package, I have followed upstream's documentation on
+what is "required" and what is "recommended".  Packages that upstream documents
+as "system requirements" are listed as Debian package dependencies.  Packages
+that upstream documents as "recommended modules" are only listed as Recommended
+in the control file.  The main exception is the libcgi-pm-perl package, which I
+only suggest, since I have chosen to not install tv_pick_cgi (see below).
+
+Be aware that if you do not install the Recommended packages, you may limit the
+functionality available to you.  See the upstream README for details.
+
+One other note: I've fielded a few questions about why XMLTV has to depend on
+Perl 5.8.  The simple answer is: as of version 0.5.10 of XMLTV, upstream
+requires the Memoize Perl module.  The only way to get this module in Debian is
+to depend on Perl 5.8.  Feel free to write if you have questions.
+
+
+WHY FOUR PACKAGES?
+
+The upstream XMLTV package is split for Debian into three functional packages,
+and then also an overall "meta-package" that installs everything.  The Perl
+libraries have been placed in libxmltv-perl, the grabbers and other utilities
+have been placed in xmltv-util, and the GUI front-end has been placed in
+xmltv-gui.  The "meta-package" is just called xmltv.
+
+Originally, everything was in libxmltv-perl.  Then, XMLTV began depending
+on Python as well as Perl.  To meet policy, the XMLTV Perl libraries were
+placed in libxmltv-perl, and most of the rest of the functionality was
+placed in xmltv-util.  XMLTV no longer needs Python, but I've retained the
+existing package structure because I think it still makes sense.
+
+The GUI functionality has been split off into xmltv-gui because some users will
+never need the GUI, which drags along dependencies on tk and xlibs, taking up a
+lot of room in the process.  There are Debian-based projects out there that
+want to use the Debian XMLTV package, but don't want to deal with installing Tk
+and/or xlibs, and this is how I decided to accommodate them.  
+
+Incidentally, upstream mentions in Makefile.PL that tv_check could be spun off
+into a separate project in the future, so this isn't probably that bad of an
+idea even independent of the other motivations.
+
+
+WHERE IS THAT CGI SCRIPT?
+
+The upstream XMLTV package also includes a web CGI script called tv_pick_cgi.
+That CGI is not installed as part of any Debian package, although it is
+included in the documentation examples/ directory for the xmltv-util package.  
+
+The CGI is a bit dangerous in that it writes to the local filesystem, and
+anyone who wanted to use it would have to modify it anyway, since configuration
+is hardcoded into the script.  I have chosen not to actually install it in
+/usr/lib/cgi-bin because even the upstream author doesn't offer to put it
+anywhere useful, instead asking users to install it by hand.  It really is an
+example, and as such belongs in the examples directory.
+
+
+WHY IS MY GRABBER MISSING?
+
+I have fielded a number of questions lately either about why a particular
+grabber has been removed from the Debian package, or about why a particular
+grabber has not yet been placed into the Debian package.  The simple answer is:
+if your grabber is not in the upstream XMLTV distribution, it won't be in the
+Debian package, period.  Read on for some more details.
+
+If your grabber was removed from the upstream package (and hence from the
+Debian package), there's probably a good reason for it.  One possibility is
+that the grabber is fundamentally broken, and the author either can't or won't
+fix it.  Another possibility is that the owner of the website that the grabber
+runs against has indicated in some way that they do not appreciate this.
+
+Content providers (website owners) have a number of reasons why they might not
+want an XMLTV grabber to scrape content off their site.  Some providers feel
+that XMLTV grabbers are "stealing" their data.  Others simply do not have the
+hardware capacity or bandwidth required to cope with the load a grabber might
+put on their site.   
+
+Sometimes, content providers simply block XMLTV grabbers from being able to
+download content off their site.  Other content providers politely request that
+we stop killing their servers.  Still others even write and offer an
+alternative, such as the SOAP feed that Zap2it provides (tv_grab_na_dd).
+
+In any case, the upstream XMLTV maintainer (Ed Avis) has made a policy of not
+antagonizing content providers.  If a content provider makes it clear that they
+don't like a grabber (either by blocking it or by contacting someone about it),
+then Ed will stop distributing the grabber as part of the XMLTV distibution.
+This is a policy that I agree with and fully support.
+
+There are also other grabbers "in the wild" that are technically compatible
+with the XMLTV file format, but are not part of Ed's XMLTV distribution at all.
+Some of these grabbers have been submitted to Ed, but he has declined to
+include them, perhaps for quality reasons or because they don't follow existing
+standards.  Other grabbers have been written independently, with no intent to
+include them Ed's distribution.
+
+You will not find either of these kinds of grabbers in the Debian XMLTV
+package.  This package is kind of a beast as it is.  There are a huge number of
+dependencies (many of which I also maintain backports for) and there are new
+upstream releases pretty frequently.  I would have a really hard time keeping
+up with Ed's releases and also trying to integrate in other totally separate
+pieces of software.  Besides that, I rely on Ed for quality control, and I
+trust his judgement about whether a grabber should be included in the package.
+If he doesn't include it, I won't either.
+
+Please note: now that I have documented this here, I will summarily close any
+bug reports asking me to "put back" a grabber, or telling me that a grabber
+that was removed because it was broken is working again.  The right place to
+discuss this sort of thing is on the <xmltv-devel@lists.sourceforge.net> 
+mailing list.  Thanks!
+
+--
+vim: set ft=text80:

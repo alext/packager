@@ -1,0 +1,42 @@
+Description: Adds a warning to tv_grab_it_dvb for users without Linux::DVB installed, directing them to the Debian package (if available).
+Forwarded: not-needed
+Author: Chris Butler <chrisb@debian.org>
+Last-Update: 2010-05-23
+
+--- a/grab/it_dvb/tv_grab_it_dvb.in
++++ b/grab/it_dvb/tv_grab_it_dvb.in
+@@ -76,7 +76,12 @@
+ 
+ =head1 CAVEATS
+ 
+-This grabber relies on the linux dvb api, and therefore does not run under windows.
++This grabber relies on the linux dvb api, and therefore does not run under
++other operating systems.
++
++For Debian users: this means the package does not depend on the Linux::DVB perl
++package, as this would make it uninstallable on the Debian kFreeBSD and HURD
++ports. Please install the liblinux-dvb-perl package to use this grabber. 
+ 
+ =head1 EXAMPLES
+ 
+@@ -106,7 +111,6 @@
+ 
+ 
+ use File::Slurp;
+-use Linux::DVB;
+ use Time::HiRes;
+ use IO::Select;
+ 
+@@ -153,6 +157,12 @@
+     *d = \&Log::TraceMessages::d;
+     Log::TraceMessages::check_argv();
+     }
++
++    eval { require Linux::DVB; Linux::DVB->import(); };
++    if ($@) {
++	die ($^O eq 'linux') ? "tv_grab_it_dvb requires the Linux::DVB module, which is not installed by\ndefault. Please install the liblinux-dvb-perl package to use this grabber."
++			     : "tv_grab_it_dvb requires the Linux::DVB module, which is not available for $^O.";
++    }
+ }
+ 
+ my $DEBUG = 0;

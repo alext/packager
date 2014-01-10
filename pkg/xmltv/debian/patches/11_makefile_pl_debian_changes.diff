@@ -1,0 +1,42 @@
+Description: Debian-specific changes to Makefile.PL
+ Altered suffixes for manpages for Debian Perl Policy 
+ Removed Lingua::EN::Numbers::Ordinate dependency, not required for package
+ Added more modules to the list of manpages to generate
+Forwarded: not-needed
+Author: Chris Butler <chrisb@debian.org>
+Last-Update: 2010-04-20
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -88,7 +88,10 @@
+      # MakeMaker versions.
+      INSTALLMAN1DIR  => "$location/share/man/man1",
+      INSTALLMAN3DIR  => "$location/share/man/man3",
+-     MAN3EXT         => '3',
++
++     # For Debian, the scripts will get .1p and the module will get .3pm.
++     MAN1EXT         => '1p',
++     MAN3EXT         => '3pm',
+ 
+      # Directory to install into when making Windows binary dist.
+      WINDOWS_DIST    => "xmltv-$VERSION-win32",
+@@ -224,7 +227,9 @@
+ #
+ my %recommended
+   = (
+-     'Lingua::EN::Numbers::Ordinate' => 0,
++     # For Debian, we ignore this package, since only the
++     # CGI script uses it and we don't install that.
++     #'Lingua::EN::Numbers::Ordinate' => 0
+      'Lingua::Preferred' => '0.2.4',
+      'Term::ProgressBar' => 2.03,
+      'Compress::Zlib' => 0,
+@@ -1374,7 +1379,7 @@
+ sub MY::manifypods {
+     package MY;
+     for (my $inherited = shift->SUPER::manifypods(@_)) {
+-        foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip GUI Date Supplement)) {
++		foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip GUI Date Supplement ValidateGrabber Options Configure ValidateFile Configure::Writer Version PreferredMethod Lineup)) {
+             s!\$\(INST_MAN3DIR\)/(?:grab::|)$s[.]\$\(MAN3EXT\)!"\$(INST_MAN3DIR)/XMLTV::$s.\$(MAN3EXT)"!;
+             s!\$\(INSTALLMAN3DIR\)/$s.\$\(MAN3EXT\)!"\$(INSTALLMAN3DIR)/XMLTV::$s.\$(MAN3EXT)"!;
+         }
