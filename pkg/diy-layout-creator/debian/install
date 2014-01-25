@@ -1,0 +1,9 @@
+diylc.jar usr/share/diy-layout-creator
+lib usr/share/diy-layout-creator
+library usr/share/diy-layout-creator
+templates usr/share/diy-layout-creator
+themes usr/share/diy-layout-creator
+update.xml usr/share/diy-layout-creator
+run.sh usr/bin/diy-layout-creator
+diy-layout-creator.desktop usr/share/applications
+debian/icons/* usr/share/pixmaps
