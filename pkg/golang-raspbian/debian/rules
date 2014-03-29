@@ -11,9 +11,8 @@ bindir := /bin
 # We loop over supported operating systems and architectures multiple times,
 # so these two variables contain a centralized version of that code.
 # The variables $$os and $$arch can be used inside such a loop.
-FOR_GO_ARCH := for os in $$(echo linux freebsd windows darwin netbsd); do \
-	archs="amd64 386"; \
-	[ "$$os" = "linux" ] || [ "$$os" = "freebsd" ] && archs="amd64 arm 386"; \
+FOR_GO_ARCH := for os in $$(echo linux); do \
+	archs="arm"; \
 	for arch in $$(echo $$archs); do
 FOR_GO_ARCH_END := done; done
 

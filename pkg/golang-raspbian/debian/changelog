@@ -1,3 +1,9 @@
+golang (2:1.2.1-2~raspbian1) stable; urgency=low
+
+  * Disable cross-compilation builds
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 29 Mar 2014 10:24:17 +0000
+
 golang (2:1.2.1-2~wheezy1) stable; urgency=low
 
   * Backport to raspbian wheezy
