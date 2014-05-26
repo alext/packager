@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
+"POT-Creation-Date: 2009-11-02 20:43+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up once"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up now and update later"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "No automated setup"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid "Automatic remapping of client requests:"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Apt-Cacher NG can download packages from repositories other than those "
+"requested by the clients. This allows it to cache content effectively, and "
+"makes it easy for an administrator to switch to another mirror later."
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"This remapping of URLs can be configured now in an automated way based on "
+"the current state of /etc/apt/sources.list. Optionally, this process can be "
+"repeated on every package update (modifying the configuration files each "
+"time)."
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Selecting \"No automated setup\" will leave the existing configuration "
+"unchanged. It will need to be updated manually."
+msgstr ""

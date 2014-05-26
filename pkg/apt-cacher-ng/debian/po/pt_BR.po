@@ -1,0 +1,82 @@
+# Debconf translations for apt-cacher-ng.
+# Copyright (C) 2010 THE apt-cacher-ng'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the apt-cacher-ng package.
+# Bruno Gurgel <bruno.gurgel@gmail.com>, 2010.
+# Adriano Rafael Gomes <adrianorg@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: apt-cacher-ng 0.5.12-1\n"
+"Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
+"POT-Creation-Date: 2009-11-02 20:43+0000\n"
+"PO-Revision-Date: 2011-01-13 14:43-0200\n"
+"Last-Translator: Adriano Rafael Gomes <adrianorg@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
+"org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"pt_BR utf-8\n"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up once"
+msgstr "Configurar uma vez"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up now and update later"
+msgstr "Configurar agora e atualizar depois"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "No automated setup"
+msgstr "Sem configuração automatizada"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid "Automatic remapping of client requests:"
+msgstr "Remapeamento automático das requisições dos clientes:"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Apt-Cacher NG can download packages from repositories other than those "
+"requested by the clients. This allows it to cache content effectively, and "
+"makes it easy for an administrator to switch to another mirror later."
+msgstr ""
+"O Apt-Cacher NG pode baixar pacotes de repositórios diferentes daqueles "
+"requisitados pelos clientes. Isso permite fazer cache de conteúdo de forma "
+"eficaz, e torna a troca para outros repositórios mais fácil para o "
+"administrador."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"This remapping of URLs can be configured now in an automated way based on "
+"the current state of /etc/apt/sources.list. Optionally, this process can be "
+"repeated on every package update (modifying the configuration files each "
+"time)."
+msgstr ""
+"Esse remapeamento de URLs pode ser configurado agora de uma forma "
+"automatizada baseada no estado atual do /etc/apt/sources.list. "
+"Opcionalmente, esse processo pode ser repetido em cada atualização de pacote "
+"(modificando os arquivos de configuração a cada vez)."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Selecting \"No automated setup\" will leave the existing configuration "
+"unchanged. It will need to be updated manually."
+msgstr ""
+"Selecionar \"Sem configuração automatizada\" deixará inalterada a "
+"configuração existente. Ela precisará ser atualizada manualmente."

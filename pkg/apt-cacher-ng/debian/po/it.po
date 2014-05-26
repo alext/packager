@@ -1,0 +1,78 @@
+# ITALIAN TRANSLATION OF APT-CACHER-NG PO-DEBCONF FILE.
+# COPYRIGHT (C) 2009 THE APT-CACHER-NG'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the apt-cacher-ng package.
+#
+# Vincenzo Campanella <vinz65@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: apt-cacher-ng 0.4-2\n"
+"Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
+"POT-Creation-Date: 2009-11-02 20:43+0000\n"
+"PO-Revision-Date: 2009-10-28 19:25+0100\n"
+"Last-Translator: Vincenzo Campanella <vinz65@gmail.com>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up once"
+msgstr "Impostare una volta"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up now and update later"
+msgstr "Impostare ora e aggiornare successivamente"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "No automated setup"
+msgstr "Nessuna impostazione automatica"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid "Automatic remapping of client requests:"
+msgstr "Redirezione automatica delle richieste dei client:"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Apt-Cacher NG can download packages from repositories other than those "
+"requested by the clients. This allows it to cache content effectively, and "
+"makes it easy for an administrator to switch to another mirror later."
+msgstr ""
+"Apt-Cacher NG può scaricare i pacchetti da repository diversi da quelli "
+"richiesti dai client. Questo consente di memorizzare localmente il contenuto "
+"e facilita agli amministratori un eventuale successivo passaggio a un altro "
+"mirror."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"This remapping of URLs can be configured now in an automated way based on "
+"the current state of /etc/apt/sources.list. Optionally, this process can be "
+"repeated on every package update (modifying the configuration files each "
+"time)."
+msgstr ""
+"Questa redirezione di URL può essere configurata ora automaticamente sulla "
+"base dello stato attuale di «/etc/apt/sources.list». Eventualmente questo "
+"processo può essere ripetuto su ogni aggiornamento del pacchetto "
+"(modificando ogni volta i file di configurazione)."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Selecting \"No automated setup\" will leave the existing configuration "
+"unchanged. It will need to be updated manually."
+msgstr ""
+"Selezionando «Nessuna impostazione automatica» si lascerà la configurazione "
+"attuale invariata. Dovrà essere aggiornata manualmente."

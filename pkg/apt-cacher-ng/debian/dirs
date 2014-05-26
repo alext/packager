@@ -1,0 +1,4 @@
+usr/sbin
+etc/apt-cacher-ng
+usr/lib/apt-cacher-ng
+var/lib/apt-cacher-ng

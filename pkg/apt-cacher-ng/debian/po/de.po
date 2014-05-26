@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: apt-cacher-ng 0.4.1\n"
+"Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
+"POT-Creation-Date: 2009-11-02 20:43+0000\n"
+"PO-Revision-Date: 2009-10-26 21:30 +0100\n"
+"Last-Translator: Eduard Bloch <blade@debian.org>\n"
+"Language-Team: German <debian-l10n-german@lists.debian.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Language: de_DE\n"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up once"
+msgstr "Nur ein Mal einrichten"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up now and update later"
+msgstr "Jetzt einrichten und später aktualisieren"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "No automated setup"
+msgstr "Keine automatisierte Einrichtung"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid "Automatic remapping of client requests:"
+msgstr "Automatische Umleitung der Client-Anfragen:"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Apt-Cacher NG can download packages from repositories other than those "
+"requested by the clients. This allows it to cache content effectively, and "
+"makes it easy for an administrator to switch to another mirror later."
+msgstr ""
+"Apt-Cacher NG kann Pakete aus anderen Depots beziehen als von denen, die in "
+"Client-Aufrufen angegeben wurden. Dadurch kann der Cache effektiver arbeiten "
+"und erleichtert dem Administrator einen nachträglichen Umzug zu einem "
+"anderen Spiegelserver."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"This remapping of URLs can be configured now in an automated way based on "
+"the current state of /etc/apt/sources.list. Optionally, this process can be "
+"repeated on every package update (modifying the configuration files each "
+"time)."
+msgstr ""
+"Automatische Umleitung der URLs kann jetzt automatisch einrichtet werden, "
+"basierend auf dem derzeitigen Stand von /etc/apt/sources.list. Optional kann "
+"dieser Prozess bei jeder Aktualisierung des Pakets durchgeführt werden (und "
+"dabei jedes Mal die Konfigurationsdateien verändern)."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Selecting \"No automated setup\" will leave the existing configuration "
+"unchanged. It will need to be updated manually."
+msgstr ""
+"Auswahl von »Keine automatisierte Konfiguration« rührt bestehende "
+"Konfigurationsdateien nicht an. Diese müssen dann per Hand gepflegt werden."

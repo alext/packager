@@ -1,0 +1,26 @@
+# These templates have been reviewed by the debian-l10n-english
+# team
+#
+# If modifications/additions/rewording are needed, please ask
+# debian-l10n-english@lists.debian.org for advice.
+#
+# Even minor modifications require translation updates and such
+# changes should be coordinated with translators and reviewers.
+
+Template: apt-cacher-ng/gentargetmode
+Type: select
+__Choices: Set up once, Set up now and update later, No automated setup
+Default: Set up once
+_Description: Automatic remapping of client requests:
+ Apt-Cacher NG can download packages from repositories other than those
+ requested by the clients. This allows it to cache content effectively,
+ and makes it easy for an administrator to switch to another mirror later.
+ .
+ This remapping of URLs can be configured now in an automated way based on the
+ current state of /etc/apt/sources.list. Optionally, this process can be
+ repeated on every package update (modifying the configuration files each
+ time).
+ .
+ Selecting "No automated setup" will leave the existing configuration
+ unchanged. It will need to be updated manually.
+

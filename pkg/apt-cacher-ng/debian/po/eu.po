@@ -1,0 +1,80 @@
+# translation of apt-cacher-ng_eu.po to
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Piarres Beobide <pi@beobide.net>, 2009.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: apt-cacher-ng_eu\n"
+"Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
+"POT-Creation-Date: 2009-11-02 20:43+0000\n"
+"PO-Revision-Date: 2009-10-29 12:05+0100\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
+"Language-Team: Basque <debian-l10n-basque@lists.debian.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up once"
+msgstr "Konfiguratu behin"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up now and update later"
+msgstr "Konfiguratu orain eta eguneratu beranduago"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "No automated setup"
+msgstr "Ez egin konfigurazio automatikorik"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid "Automatic remapping of client requests:"
+msgstr "Bezero eskaeren birmapatze automatikoa:"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Apt-Cacher NG can download packages from repositories other than those "
+"requested by the clients. This allows it to cache content effectively, and "
+"makes it easy for an administrator to switch to another mirror later."
+msgstr ""
+"Bezeroek eskatu ez dituzten biltegietatik Apt-Cacher NG aplikazioak paketeak "
+"deskarga ditzake. Honek edukia cache eraginkorrago batean gordetzea "
+"baimentzen du, eta administratzaileek beranduago beste ispilu batera "
+"aldatzea errazten du."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"This remapping of URLs can be configured now in an automated way based on "
+"the current state of /etc/apt/sources.list. Optionally, this process can be "
+"repeated on every package update (modifying the configuration files each "
+"time)."
+msgstr ""
+"URLa birmapatze hau modu automatiko batetan konfiguratu daiteke orain /etc/"
+"apt/sources.list fitxategiaren egoeran oianrriturik. Aukeran prozesu hau "
+"pakete eguneraketa bakiotzean egin daiteke (konfigurazio fitxategiak aldi "
+"bakoitzean eraldatzen)."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Selecting \"No automated setup\" will leave the existing configuration "
+"unchanged. It will need to be updated manually."
+msgstr ""
+"\"Ez egin konfigurazio automatikorik\" hautatuz dagoen konfigurazioa aldatu "
+"gabe utziko du. Eskuz eraldatu beharko duzu."
