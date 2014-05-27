@@ -1,0 +1,15 @@
+Index: diy-layout-creator-3.28.0/diy-layout-creator.desktop
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ diy-layout-creator-3.28.0/diy-layout-creator.desktop	2014-01-25 13:48:36.368551486 +0000
+@@ -0,0 +1,10 @@
++[Desktop Entry]
++Name=DIY Layout Creator
++Version=1.0
++Exec=/usr/bin/diy-layout-creator
++Comment=Electronic circuit layout designer for stripboards.
++Icon=diy-layout-creator
++Type=Application
++Terminal=false
++StartupNotify=true
++Categories=Electronics;

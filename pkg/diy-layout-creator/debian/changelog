@@ -1,0 +1,11 @@
+diy-layout-creator (3.28.0-2) precise; urgency=low
+
+  * Fix launch script so that config etc. is stored in ~/.config/diylc.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 25 Jan 2014 18:45:55 +0000
+
+diy-layout-creator (3.28.0-1) precise; urgency=low
+
+  * Packaging from binary download.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 25 Jan 2014 12:17:53 +0000

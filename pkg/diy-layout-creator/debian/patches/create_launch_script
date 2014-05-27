@@ -1,0 +1,25 @@
+Index: diy-layout-creator-3.28.0/diy-layout-creator
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ diy-layout-creator-3.28.0/diy-layout-creator	2014-01-25 18:43:49.487304667 +0000
+@@ -0,0 +1,20 @@
++#!/bin/bash
++
++CONFIG_DIR=${HOME}/.config/diylc
++SHARE_DIR=/usr/share/diy-layout-creator
++
++mkdir -p $CONFIG_DIR
++cd $CONFIG_DIR
++
++# Ensure update.xml is symlinked to the package version
++rm -f update.xml
++ln -s ${SHARE_DIR}/update.xml
++
++# Symlink themes dir if it doesn't exist
++if [ ! -d themes ]; then
++  ln -s ${SHARE_DIR}/themes
++fi
++
++exec java -Xms512m -Xmx2048m -Dorg.diylc.scriptRun=true \
++  -cp ${SHARE_DIR}/diylc.jar:${SHARE_DIR}/lib \
++  org.diylc.DIYLCStarter
