@@ -1,0 +1,97 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+SHELL=/bin/bash
+CDIR=$(CURDIR)/debian/apt-cacher-ng/etc/apt-cacher-ng/
+
+CFLAGS = $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS) -Wall
+export CFLAGS
+CXXFLAGS=$(CFLAGS)
+export CXXFLAGS
+LDFLAGS = $(shell dpkg-buildflags --get LDFLAGS) 
+export LDFLAGS
+
+
+PARJOBS=-j2
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+PARJOBS = -j$(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+endif
+
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	# Add here commands to configure the package.
+
+	touch configure-stamp
+
+build: build-arch build-indep
+
+build-indep:
+
+build-arch: configure-stamp 
+	dh_testdir
+	$(MAKE) $(PARJOBS)
+	# may fail if halibut is not installed, doesn't matter
+	#-$(MAKE) doc
+	@-test -d ../unstripped && cp build/apt-cacher-ng ../unstripped/apt-cacher-ng.$$(dpkg-parsechangelog |grep ^Version: | cut -f2 -d' ') || true
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp configure-stamp
+
+	# Add here commands to clean up after the build process.
+	$(MAKE) $(MAKEFLAGS) distclean || true
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	# Add here commands to install the package into debian/apt-cacher-ng.
+	install build/apt-cacher-ng $(CURDIR)/debian/apt-cacher-ng/usr/sbin/apt-cacher-ng
+	install build/in.acng expire-caller.pl urlencode-fixer.pl distkill.pl $(CURDIR)/debian/apt-cacher-ng/usr/lib/apt-cacher-ng/
+	# optional
+	-install build/acngfs $(CURDIR)/debian/apt-cacher-ng/usr/lib/apt-cacher-ng/
+	cp -a conf/{*mirror*,*.html,*.css} $(CURDIR)/debian/apt-cacher-ng/usr/lib/apt-cacher-ng
+	cp -a conf/*.conf $(CDIR)
+	> $(CDIR)/backends_debian
+	> $(CDIR)/backends_debvol
+	> $(CDIR)/backends_ubuntu
+#	cd $(CDIR) && cp -s ../../usr/lib/apt-cacher-ng/{*mirror*,*.html,*.css} . 
+	ln -sf ../../var/lib/apt-cacher-ng/backends_debian.default $(CDIR)/backends_debian.default
+	ln -sf ../../var/lib/apt-cacher-ng/backends_ubuntu.default $(CDIR)/backends_ubuntu.default
+
+# Build architecture-independent files here.
+binary-indep: build-indep install
+
+# Build architecture-dependent files here.
+binary-arch: build-arch install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs ChangeLog
+	dh_installdocs
+	dh_installexamples conf/*.conf conf/debrep.hooks doc/000apt-cacher-ng-proxy contrib/*.conf
+	dh_installdebconf	
+	dh_installlogrotate
+	dh_installinit -- defaults 18
+	dh_installcron
+	dh_installman doc/man/*.8
+	dh_bugfiles
+	dh_link
+	dh_strip
+	dh_compress -X.pdf
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb -- -Zxz
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure

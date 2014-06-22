@@ -1,0 +1,63 @@
+apt-cacher-ng for Debian
+------------------------
+
+See apt-cacher-ng.pdf for configuration instructions (or HTML version or
+README). The main configuration directory on Debian systems is located in
+/etc/apt-cacher-ng/. A sample configuration file for the clients is provided
+in /usr/share/doc/apt-cacher-ng/examples/000apt-cacher-ng-proxy .
+
+The logs are stored in /var/log/apt-cacher-ng/ and are rotated/expired by
+logrotate except of temporary maintenance logs which are removed ASAP.
+
+REMOTE MIRROR CONFIGURATION
+---------------------------
+
+The Debian setup includes some semi-automatic backend configuration. The
+remapping rules for many known mirrors are shipped with the package. On
+installation, the setup script picks up a list of preferred backend hosts from
+local machine's current sources.list files and puts them into
+/etc/apt-cacher-ng/backends_* files.
+
+To change the mirrors used by apt-cacher-ng, user needs to add/remove/reorder
+the lists in this backends files. To execute or enable automatic configuration,
+run "dpkg-reconfigure apt-cacher-ng".
+
+SECURITY
+--------
+
+See apt-cacher-ng manual for details. On Debian systems, the file
+/etc/apt-cacher-ng/security.conf is installed which contains security related
+options (but it can be in any other *.conf file as well). Currently it sets the
+"AdminAuth: user:pass" option to protect some action triggers in the web user
+interface against unauthorized use. The permissions of security.conf file
+itself are chosen in a way to allowing apt-cacher-ng daemon to use it but not
+letting every local user read it.
+
+INETD USAGE
+-----------
+
+For inetd usage, the in.acng binary is shipped with the Debian package.
+However, it needs to be installed manually by adding the line:
+
+3142  stream  tcp nowait  apt-cacher-ng /usr/sbin/tcpd /usr/lib/apt-cacher-ng/in.acng /var/run/apt-cacher-ng/socket
+
+to /etc/inetd.conf and reload of the inetd daemon. The parameters above need to
+be adapted as needed, also see the package documentation for more details.
+
+NOTE: this inetd bridge is not needed in order to use ACLs via /etc/host.*
+files, recent versions of apt-cacher-ng support these access filters natively.
+
+MISCELANEOUS NOTES
+------------------
+
+Apparently some versions of apt used URL encoding for tilde
+character in file names in certain configurations. This could have caused
+storage of files under suboptimal locations in the local cache of
+apt-cacher-ng, followed by a removal of that files in later expiration
+runs.
+
+The current version of apt-cacher-ng works around that problem. It also
+includes a script (/usr/lib/apt-cacher-ng/urlencode-fixer.pl) which checks
+and corrects the files already existing in the cache directory.
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 08 Dec 2011 21:07:22 +0100

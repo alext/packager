@@ -1,0 +1,79 @@
+# translation of apt-cacher-ng_sv.po to Swedish
+# Copyright (C) 2009
+# This file is distributed under the same license as the apt-cacher-ng package.
+#
+# Martin Ågren <martin.agren@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: apt-cacher-ng_sv\n"
+"Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
+"POT-Creation-Date: 2009-11-02 20:43+0000\n"
+"PO-Revision-Date: 2009-11-03 08:17+0100\n"
+"Last-Translator: Martin Ågren <martin.agren@gmail.com>\n"
+"Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up once"
+msgstr "Ställ in en gång"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "Set up now and update later"
+msgstr "Ställ in nu och uppdatera senare"
+
+#. Type: select
+#. Choices
+#: ../apt-cacher-ng.templates:2001
+msgid "No automated setup"
+msgstr "Ingen automatisk inställning"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid "Automatic remapping of client requests:"
+msgstr "Automatisk ommappning av klientfrågor:"
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Apt-Cacher NG can download packages from repositories other than those "
+"requested by the clients. This allows it to cache content effectively, and "
+"makes it easy for an administrator to switch to another mirror later."
+msgstr ""
+"Apt-Cacher NG kan ladda ner paket från arkiv som klienten inte frågat efter. "
+"Detta gör att den kan cacha innehåll effektivt och gör det enkelt för en "
+"administratör att byta till en annan spegel vid ett senare tillfälle."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"This remapping of URLs can be configured now in an automated way based on "
+"the current state of /etc/apt/sources.list. Optionally, this process can be "
+"repeated on every package update (modifying the configuration files each "
+"time)."
+msgstr ""
+"Denna ommappning av URL:er kan konfigureras automatiskt nu baserat på det "
+"aktuella innehållet i /etc/apt/sources.list. Om du vill, kan denna process "
+"upprepas vid varje paketuppdatering (och alltså modifiera "
+"konfigurationsfilerna varje gång)."
+
+#. Type: select
+#. Description
+#: ../apt-cacher-ng.templates:2002
+msgid ""
+"Selecting \"No automated setup\" will leave the existing configuration "
+"unchanged. It will need to be updated manually."
+msgstr ""
+"Väljer du \"Ingen automatisk inställning\" kommer den existerande "
+"konfigurationen lämnas oförändrad. Den kommer behöva uppdateras manuellt."
