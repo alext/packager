@@ -1,3 +1,15 @@
+golang (2:1.3-1~ppa1) precise; urgency=low
+
+  * Pull in changes from debian
+  * New upstream version.
+  * Drop patches merged upstream:
+    - debian/patches/add-src-pkg-debug-elf-testdata-hello.patch
+    - debian/patches/add-tar-xattr-support.patch
+  * Fix debian/watch (Thanks Tianon) (Closes: #748290)
+  * Remove dangling symlink /usr/lib/go/lib/godoc (Closes: #747968)
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Mon, 23 Jun 2014 21:39:16 +0100
+
 golang (2:1.2.1-2ubuntu1) trusty; urgency=low
 
   * Merge from Debian unstable.  Remaining changes:
