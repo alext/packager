@@ -71,6 +71,7 @@ override_dh_install:
 		mkdir -p $(CURDIR)/debian/golang-go/usr/lib/go/pkg/$$(dirname $$file); \
 		mv pkg/$$file $(CURDIR)/debian/golang-go/usr/lib/go/pkg/$$file; \
 	done
+	mv bin/go bin/golang-go
 	dh_install --fail-missing
 	# Remove .syso files of the race detector; it is not used yet and the files are arch-dependent.
 	find $(CURDIR)/debian/golang-src/usr/share/go/src/pkg/runtime/race -type f -name '*.syso' -delete
