@@ -9,3 +9,5 @@
 *.ddeb
 *.changes
 *.build
+
+/tmp
