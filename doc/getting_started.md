@@ -27,7 +27,7 @@ For understanding the folder structure for packager packages: [here](folder_stru
 Building packages for multiple series
 -------------------------------------
 
-Building packages for multiple series ("Precise", "Lucid", etc.) is slightly
+Building packages for multiple series ("Precise", "Trusty", etc.) is slightly
 more involved. See [`building_for_multiple_series.md`](building_for_multiple_series.md).
 
 Submitting to Launchpad
