@@ -1,12 +1,12 @@
 Source: xmltv
 Section: interpreters
 Priority: optional
-Maintainer: Alex Tomlins <alex@tomlins.org.uk>
+Maintainer: Chris Butler <chrisb@debian.org>
 Build-Depends: debhelper (>= 7.0.50~)
 Build-Depends-Indep: perl, perl-modules, libwww-perl (>= 5.65), libxml-parser-perl (>= 2.34), libxml-twig-perl (>= 3.28), libxml-writer-perl (>= 0.6), libdate-manip-perl (>= 5.42a), libarchive-zip-perl (>= 1.14), libio-compress-perl, libhtml-parser-perl (>= 3.34), libhtml-tableextract-perl, libhtml-tree-perl (>= 3.17), libhttp-cache-transparent-perl (>= 1.0), libio-stringy-perl, libsoap-lite-perl, libterm-readkey-perl, libtext-kakasi-perl, perl-tk, libtk-tablematrix-perl, libwww-mechanize-perl (>= 1.02), libxml-libxml-perl, libterm-progressbar-perl (>= 2.09), liblingua-preferred-perl (>= 0.2.4), libunicode-string-perl, liblog-tracemessages-perl, libfile-slurp-perl, libxml-simple-perl, libtext-bidi-perl, libxml-dom-perl, libxml-libxslt-perl, libdatetime-format-strptime-perl, libparse-recdescent-perl, libtext-iconv-perl, libjson-perl, libdata-dump-perl, liblinux-dvb-perl [linux-any], libdatetime-perl, libdatetime-timezone-perl, libdatetime-format-iso8601-perl
 Standards-Version: 3.9.3
-Vcs-Browser: https://github.com/alext/xmltv
-Vcs-Git: git://github.com/alext/xmltv.git
+Vcs-Browser: http://git.crustynet.org.uk/xmltv.git
+Vcs-Git: git://git.crustynet.org.uk/xmltv.git
 Homepage: http://xmltv.org/
 
 Package: xmltv

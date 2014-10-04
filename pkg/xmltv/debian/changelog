@@ -1,15 +1,3 @@
-xmltv (0.5.63-2ppa2) precise; urgency=low
-
-  * Update maintainer to reflect this is now in a PPA
-
- -- Alex Tomlins <alex@tomlins.org.uk>  Fri, 07 Jun 2013 13:21:24 +0100
-
-xmltv (0.5.63-2ppa1) precise; urgency=low
-
-  * Backported to precise
-
- -- Alex Tomlins <alex@tomlins.org.uk>  Thu, 06 Jun 2013 20:11:50 +0100
-
 xmltv (0.5.63-2) unstable; urgency=low
 
   * Apply patch from upstream CVS to fix tv_grab_hu_ro, thanks to POJAR GEORGE
