@@ -1,3 +1,9 @@
+xmltv (0.5.63-2~ppa1) precise; urgency=medium
+
+  * PPA build
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 04 Oct 2014 16:41:24 +0100
+
 xmltv (0.5.63-2) unstable; urgency=low
 
   * Apply patch from upstream CVS to fix tv_grab_hu_ro, thanks to POJAR GEORGE
