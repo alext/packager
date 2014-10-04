@@ -1,14 +1,16 @@
-xmltv (0.5.63-2ppa2) precise; urgency=low
+xmltv (0.5.65-1~ppa2) precise; urgency=medium
 
-  * Update maintainer to reflect this is now in a PPA
+  * New upstream release 0.5.65
+  * Added patch fixing tv_to_text
+  * Removed patch fixing tv_grab_huro (fixed upstream)
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Fri, 07 Jun 2013 13:21:24 +0100
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 04 Oct 2014 16:45:37 +0100
 
-xmltv (0.5.63-2ppa1) precise; urgency=low
+xmltv (0.5.63-2~ppa1) precise; urgency=medium
 
-  * Backported to precise
+  * PPA build
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Thu, 06 Jun 2013 20:11:50 +0100
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 04 Oct 2014 16:41:24 +0100
 
 xmltv (0.5.63-2) unstable; urgency=low
 

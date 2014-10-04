@@ -36,7 +36,7 @@ Last-Update: 2010-04-20
      package MY;
      for (my $inherited = shift->SUPER::manifypods(@_)) {
 -        foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip GUI Date Supplement)) {
-+		foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip GUI Date Supplement ValidateGrabber Options Configure ValidateFile Configure::Writer Version PreferredMethod Lineup)) {
++		foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip GUI Data::Recursive::Encode Date Supplement ValidateGrabber Options Configure ValidateFile Configure::Writer Version PreferredMethod Lineup)) {
              s!\$\(INST_MAN3DIR\)/(?:grab::|)$s[.]\$\(MAN3EXT\)!"\$(INST_MAN3DIR)/XMLTV::$s.\$(MAN3EXT)"!;
              s!\$\(INSTALLMAN3DIR\)/$s.\$\(MAN3EXT\)!"\$(INSTALLMAN3DIR)/XMLTV::$s.\$(MAN3EXT)"!;
          }
