@@ -2,6 +2,7 @@ choose/tv_pick/tv_pick_cgi                         usr/share/doc/libxmltv-perl/e
 debian/tmp/usr/share/man/man3/XMLTV.3pm                usr/share/man/man3
 debian/tmp/usr/share/man/man3/XMLTV::Configure.3pm				usr/share/man/man3
 debian/tmp/usr/share/man/man3/XMLTV::Configure::Writer.3pm			usr/share/man/man3
+debian/tmp/usr/share/man/man3/XMLTV::Data::Recursive::Encode.3pm		usr/share/man/man3
 debian/tmp/usr/share/man/man3/XMLTV::Date.3pm          usr/share/man/man3
 debian/tmp/usr/share/man/man3/XMLTV::GUI.3pm           usr/share/man/man3
 debian/tmp/usr/share/man/man3/XMLTV::Grab_XML.3pm      usr/share/man/man3

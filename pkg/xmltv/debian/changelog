@@ -1,3 +1,11 @@
+xmltv (0.5.65-1~ppa2) precise; urgency=medium
+
+  * New upstream release 0.5.65
+  * Added patch fixing tv_to_text
+  * Removed patch fixing tv_grab_huro (fixed upstream)
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 04 Oct 2014 16:45:37 +0100
+
 xmltv (0.5.63-2~ppa1) precise; urgency=medium
 
   * PPA build

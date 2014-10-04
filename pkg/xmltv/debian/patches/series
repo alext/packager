@@ -1,3 +1,3 @@
 it_dvb_linux_warning
 11_makefile_pl_debian_changes.diff
-tv_grab_huro.patch
+fix_tv_to_text.diff

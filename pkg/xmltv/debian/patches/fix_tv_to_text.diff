@@ -1,0 +1,25 @@
+Subject: Fix bug in tv_to_text
+Bug: http://sourceforge.net/p/xmltv/bugs/487/?limit=25
+Origin: http://xmltv.cvs.sourceforge.net/viewvc/xmltv/xmltv/filter/tv_to_text?revision=1.7
+Index: xmltv-0.5.65/filter/tv_to_text
+===================================================================
+--- xmltv-0.5.65.orig/filter/tv_to_text	2014-05-05 17:02:54.000000000 +0100
++++ xmltv-0.5.65/filter/tv_to_text	2014-10-04 10:10:15.909290662 +0100
+@@ -31,7 +31,7 @@
+ 
+ use strict;
+ use warnings;
+-use XMLTV::Version '$Id: tv_to_text,v 1.6 2014/05/05 16:02:54 bilbo_uk Exp $ ';
++use XMLTV::Version '$Id: tv_to_text,v 1.7 2014/05/25 13:36:32 bilbo_uk Exp $ ';
+ use IO::File;
+ use Date::Manip; Date_Init('TZ=UTC');
+ use POSIX 'tmpnam';
+@@ -82,7 +82,7 @@
+     my ($start, $stop, $title, $sub_title, $channel, $desc) = @$_;
+     $stop = '' if not defined $stop;
+     $title .= " // $sub_title" if defined $sub_title;
+-    print "$start--$stop\t$title\t$channel\t". ( $opt_withdesc && defined $desc ? $desc : '' ) . "\n";
++    print "$start--$stop\t$title\t$channel". ( $opt_withdesc && defined $desc ? "\t$desc" : '' ) . "\n";
+     $wrote_prog = 1;
+ }
+ 
