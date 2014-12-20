@@ -1,3 +1,10 @@
+xmltv (0.5.66-1~ppa1) precise; urgency=low
+
+  * New upstream release 0.5.66
+  * Remove tv_to_text fix (fixed upstream)
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 20 Dec 2014 18:54:03 +0000
+
 xmltv (0.5.65-1~ppa2) precise; urgency=medium
 
   * New upstream release 0.5.65
