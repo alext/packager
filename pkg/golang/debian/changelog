@@ -1,3 +1,9 @@
+golang (2:1.4.2-1~ppa1precise1) precise; urgency=medium
+
+  * Backport to precise
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Tue, 10 Mar 2015 20:21:43 +0000
+
 golang (2:1.4.2-1~ppa1) trusty; urgency=medium
 
   * New upstream release 1.4.2
