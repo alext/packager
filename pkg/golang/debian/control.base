@@ -1,7 +1,8 @@
 Source: golang
 Section: devel
 Priority: optional
-Maintainer: Michael Stapelberg <stapelberg@debian.org>
+Maintainer: Alex Tomlins <alex@tomlins.org.uk>
+XSBC-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-golang/golang.git
 Vcs-Git: git://anonscm.debian.org/pkg-golang/golang.git
 Build-Depends: debhelper (>= 7.4.10), bison, ed, mawk | awk, perl, netbase
@@ -98,28 +99,3 @@ Description: Go programming language compiler - metapackage
  .
  This package is a metapackage that, when installed, guarantees
  that (most of) a full Go development environment is installed.
-
-Package: golang-mode
-Architecture: all
-Depends: ${misc:Depends}, emacs23 | emacsen, emacsen-common (>= 1.4.14)
-Suggests: golang-go
-Description: Go programming language - mode for GNU Emacs
- This package provides a GNU Emacs major mode for editing code in
- Google's Go programming language.
-
-Package: kate-syntax-go
-Architecture: all
-Depends: ${misc:Depends}, kate
-Suggests: golang-go
-Description: Go programming language - Kate highlighting syntax files
- This package provides syntax files for the Kate editor for editing code
- in Google's Go programming language.
-
-Package: vim-syntax-go
-Architecture: all
-Depends: ${misc:Depends}, vim
-Recommends: vim-addon-manager
-Suggests: golang-go
-Description: Go programming language - Vim highlighting syntax files
- This package provides syntax files for the Vim editor for editing code
- in Google's Go programming language.
