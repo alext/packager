@@ -1,0 +1,2 @@
+heating-controller usr/bin
+webserver/templates/* usr/share/heating-controller/templates

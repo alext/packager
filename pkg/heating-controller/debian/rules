@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+# export DH_VERBOSE=1
+
+export GOPATH:=$(CURDIR)/gopath:$(CURDIR)/Godeps/_workspace
+export PATH:=$(GOPATH)/bin:$(PATH)
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	mkdir -p $(CURDIR)/gopath/src/github.com/alext
+	ln -s ../../../.. $(CURDIR)/gopath/src/github.com/alext/heating-controller
+	go build -o heating-controller
+
+# Disable stripping golang binaries.
+override_dh_strip:

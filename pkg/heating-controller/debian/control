@@ -1,0 +1,12 @@
+Source: heating-controller
+Section: misc
+Priority: optional
+Maintainer: Alex Tomlins <alex@tomlins.org.uk>
+Build-Depends: debhelper (>= 8.0.0), golang (>= 2:1.4.2)
+Standards-Version: 3.9.2
+Homepage: https://github.com/alext/heating-controller
+
+Package: heating-controller
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: An exprimental central heating controller targeted at the Raspberry Pi
