@@ -25,6 +25,8 @@ case "$1" in
 
     purge)
         deluser --system --quiet heating-controller || true
+
+        rm -rf /var/lib/heating-controller/
     ;;
 
     *)

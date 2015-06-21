@@ -22,6 +22,8 @@ case "$1" in
     configure)
         addgroup --system --quiet heating-controller
         adduser --system --quiet --ingroup heating-controller --no-create-home heating-controller
+
+        chown -R heating-controller:heating-controller /var/lib/heating-controller
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
