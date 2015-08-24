@@ -1,1 +1,2 @@
 temperature-monitor usr/bin
+debian/etc/temperature-monitor.json etc
