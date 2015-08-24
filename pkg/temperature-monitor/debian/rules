@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export GOPATH:=$(CURDIR)/gopath
+
+%:
+	dh $@ 
+
+override_dh_auto_build:
+	mkdir -p $(GOPATH)/src/github.com/alext
+	ln -s ../../../.. $(GOPATH)/src/github.com/alext/temperature-monitor
+	go build -o temperature-monitor
+
+# Disable stripping golang binaries.
+override_dh_strip:
