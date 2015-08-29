@@ -6,8 +6,10 @@ Forwarded: not-needed
 Author: Chris Butler <chrisb@debian.org>
 Last-Update: 2010-04-20
 
---- a/Makefile.PL
-+++ b/Makefile.PL
+Index: xmltv-0.5.67/Makefile.PL
+===================================================================
+--- xmltv-0.5.67.orig/Makefile.PL	2015-08-25 04:53:23.000000000 +0100
++++ xmltv-0.5.67/Makefile.PL	2015-08-29 16:42:03.143588162 +0100
 @@ -88,7 +88,10 @@
       # MakeMaker versions.
       INSTALLMAN1DIR  => "$location/share/man/man1",
@@ -20,7 +22,7 @@ Last-Update: 2010-04-20
  
       # Directory to install into when making Windows binary dist.
       WINDOWS_DIST    => "xmltv-$VERSION-win32",
-@@ -224,7 +227,9 @@
+@@ -235,7 +238,9 @@
  #
  my %recommended
    = (
@@ -31,12 +33,3 @@ Last-Update: 2010-04-20
       'Lingua::Preferred' => '0.2.4',
       'Term::ProgressBar' => 2.03,
       'Compress::Zlib' => 0,
-@@ -1374,7 +1379,7 @@
- sub MY::manifypods {
-     package MY;
-     for (my $inherited = shift->SUPER::manifypods(@_)) {
--        foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip GUI Date Supplement)) {
-+		foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip GUI Data::Recursive::Encode Date Supplement ValidateGrabber Options Configure ValidateFile Configure::Writer Version PreferredMethod Lineup)) {
-             s!\$\(INST_MAN3DIR\)/(?:grab::|)$s[.]\$\(MAN3EXT\)!"\$(INST_MAN3DIR)/XMLTV::$s.\$(MAN3EXT)"!;
-             s!\$\(INSTALLMAN3DIR\)/$s.\$\(MAN3EXT\)!"\$(INSTALLMAN3DIR)/XMLTV::$s.\$(MAN3EXT)"!;
-         }

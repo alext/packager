@@ -1,3 +1,4 @@
+debian/tmp/usr/bin/tv_augment                       usr/bin
 debian/tmp/usr/bin/tv_augment_tz                    usr/bin
 debian/tmp/usr/bin/tv_cat                           usr/bin
 debian/tmp/usr/bin/tv_count                         usr/bin
@@ -10,6 +11,7 @@ debian/tmp/usr/bin/tv_grab_combiner               usr/bin
 debian/tmp/usr/bin/tv_grab_dk_dr                       usr/bin
 debian/tmp/usr/bin/tv_grab_dtv_la                   usr/bin
 debian/tmp/usr/bin/tv_grab_es_laguiatv							usr/bin
+debian/tmp/usr/bin/tv_grab_eu_dotmedia              usr/bin
 debian/tmp/usr/bin/tv_grab_eu_epgdata usr/bin
 debian/tmp/usr/bin/tv_grab_eu_egon					usr/bin
 debian/tmp/usr/bin/tv_grab_fi                       usr/bin
@@ -36,7 +38,6 @@ debian/tmp/usr/bin/tv_grab_uk_atlas                 usr/bin
 debian/tmp/usr/bin/tv_grab_uk_bleb                  usr/bin
 debian/tmp/usr/bin/tv_grab_uk_rt                    usr/bin
 debian/tmp/usr/bin/tv_grab_uk_tvguide               usr/bin
-debian/tmp/usr/bin/tv_grab_za                       usr/bin
 debian/tmp/usr/bin/tv_grep                          usr/bin
 debian/tmp/usr/bin/tv_imdb                          usr/bin
 debian/tmp/usr/bin/tv_merge                         usr/bin
@@ -48,6 +49,7 @@ debian/tmp/usr/bin/tv_to_potatoe                    usr/bin
 debian/tmp/usr/bin/tv_to_text                       usr/bin
 debian/tmp/usr/bin/tv_validate_file                 usr/bin
 debian/tmp/usr/bin/tv_validate_grabber              usr/bin
+debian/tmp/usr/share/man/man1/tv_augment.1p         usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_augment_tz.1p      usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_cat.1p             usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_count.1p           usr/share/man/man1
@@ -57,8 +59,10 @@ debian/tmp/usr/share/man/man1/tv_find_grabbers.1p   usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_ar.1p         usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_ch_search.1p usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_combiner.1p usr/share/man/man1
+debian/tmp/usr/share/man/man1/tv_grab_dk_dr.1p      usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_dtv_la.1p     usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_es_laguiatv.1p	usr/share/man/man1
+debian/tmp/usr/share/man/man1/tv_grab_eu_dotmedia.1p usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_eu_epgdata.1p usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_eu_egon.1p 	usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_fi.1p         usr/share/man/man1
@@ -85,7 +89,6 @@ debian/tmp/usr/share/man/man1/tv_grab_uk_atlas.1p   usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_uk_bleb.1p    usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_uk_rt.1p      usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_uk_tvguide.1p usr/share/man/man1
-debian/tmp/usr/share/man/man1/tv_grab_za.1p         usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grep.1p            usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_imdb.1p            usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_merge.1p           usr/share/man/man1
