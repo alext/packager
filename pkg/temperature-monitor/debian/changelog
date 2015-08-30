@@ -1,3 +1,9 @@
+temperature-monitor (0-30-gdb17513-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sun, 30 Aug 2015 10:20:20 +0100
+
 temperature-monitor (0-28-g718a31b-1) unstable; urgency=low
 
   * Initial release
