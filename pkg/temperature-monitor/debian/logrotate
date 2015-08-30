@@ -1,0 +1,7 @@
+/var/log/temperature-monitor.log {
+    rotate 12
+    daily
+    minsize 100k
+    compress
+    copytruncate
+}

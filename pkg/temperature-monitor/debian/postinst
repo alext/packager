@@ -21,6 +21,11 @@ set -e
 case "$1" in
     configure)
         adduser --system --quiet --ingroup nogroup --no-create-home temperature-monitor
+
+        logfile=/var/log/temperature-monitor.log
+        touch $logfile
+        chmod 644 $logfile
+        chown temperature-monitor $logfile
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

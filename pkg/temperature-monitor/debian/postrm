@@ -22,6 +22,8 @@ set -e
 case "$1" in
     purge)
         deluser --system --quiet temperature-monitor || true
+
+        rm -f /var/log/temperature-monitor.log*
     ;;
 
     remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
