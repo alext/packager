@@ -27,6 +27,8 @@ case "$1" in
         deluser --system --quiet heating-controller || true
 
         rm -rf /var/lib/heating-controller/
+
+        rm -f /var/log/heating-controller.log*
     ;;
 
     *)

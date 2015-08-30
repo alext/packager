@@ -1,0 +1,7 @@
+/var/log/heating-controller.log {
+    rotate 12
+    daily
+    minsize 100k
+    compress
+    copytruncate
+}

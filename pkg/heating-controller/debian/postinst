@@ -24,6 +24,11 @@ case "$1" in
         adduser --system --quiet --ingroup heating-controller --no-create-home heating-controller
 
         chown -R heating-controller:heating-controller /var/lib/heating-controller
+
+        logfile=/var/log/heating-controller.log
+        touch $logfile
+        chmod 644 $logfile
+        chown heating-controller $logfile
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
