@@ -4,14 +4,14 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-export GOPATH:=$(CURDIR)/gopath
+export GOPATH:=$(CURDIR)/gopath:$(CURDIR)/Godeps/_workspace
 
 %:
 	dh $@ 
 
 override_dh_auto_build:
-	mkdir -p $(GOPATH)/src/github.com/alext
-	ln -s ../../../.. $(GOPATH)/src/github.com/alext/temperature-monitor
+	mkdir -p $(CURDIR)/gopath/src/github.com/alext
+	ln -s ../../../.. $(CURDIR)/gopath/src/github.com/alext/temperature-monitor
 	go build -o temperature-monitor
 
 # Disable stripping golang binaries.
