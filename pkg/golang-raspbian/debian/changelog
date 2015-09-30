@@ -1,3 +1,9 @@
+golang (2:1.4.3-1~raspbianwheezy1) stable; urgency=low
+
+  * New upstream release
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Wed, 30 Sep 2015 18:49:42 +0100
+
 golang (2:1.4.2-1~raspbianwheezy1) stable; urgency=low
 
   * New upstream release
