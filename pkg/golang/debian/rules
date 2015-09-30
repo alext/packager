@@ -8,6 +8,9 @@ libexecdir := /usr/lib/go
 datadir := /usr/share/go
 bindir := /bin
 
+DEB_HOST_ARCH := $(shell dpkg-architecture -qDEB_HOST_ARCH)
+golang_archs = armel armhf amd64 i386
+
 # We loop over supported operating systems and architectures multiple times,
 # so these two variables contain a centralized version of that code.
 # The variables $$os and $$arch can be used inside such a loop.
@@ -24,6 +27,7 @@ override_dh_auto_clean:
 	rm -rf bin pkg
 	# golang-go-$os-$arch.install files are auto-generated in override_dh_install
 	rm -f debian/golang-go-*.install
+	rm -f debian/golang-go-*-*.lintian-overrides
 	rm -f debian/*+
 	rm -f debian/build.stamp
 	rm -f test/pass.out test/run.out test/times.out
@@ -32,11 +36,13 @@ override_dh_auto_clean:
 override_dh_auto_build: debian/build.stamp
 
 override_dh_auto_test:
+ifneq (,$(filter $(DEB_HOST_ARCH),$(golang_archs)))
 ifeq ($(RUN_TEST), true)
 	cd $(CURDIR)/src && \
 	$(CURDIR)/debian/test.bash $(GOROOT)/pkg/tool/$(GOHOSTOS)_$(GOHOSTARCH);
 else
 	:
+endif
 endif
 
 override_dh_compress:
@@ -56,6 +62,7 @@ gencontrol:
 	mv debian/control.tmp debian/control
 
 override_dh_install:
+ifneq (,$(filter $(DEB_HOST_ARCH),$(golang_archs)))
 	-${FOR_GO_ARCH} \
 		echo "pkg/$${os}_$${arch} /usr/lib/go/pkg/" > debian/golang-go-$$os-$$arch.install; \
 		[ "$$arch" = "amd64" ] && [ "$$os" = "linux" ] && echo "pkg/linux_amd64_race /usr/lib/go/pkg" >> debian/golang-go-$$os-$$arch.install; \
@@ -71,7 +78,6 @@ override_dh_install:
 		mkdir -p $(CURDIR)/debian/golang-go/usr/lib/go/pkg/$$(dirname $$file); \
 		mv pkg/$$file $(CURDIR)/debian/golang-go/usr/lib/go/pkg/$$file; \
 	done
-	mv bin/go bin/golang-go
 	dh_install --fail-missing
 	# Remove .syso files of the race detector; it is not used yet and the files are arch-dependent.
 	find $(CURDIR)/debian/golang-src/usr/share/go/src/runtime/race -type f -name '*.syso' -delete
@@ -88,6 +94,7 @@ override_dh_install:
 	# Touch built and installed files and directories to have same timestamp
 	touch $(CURDIR)/debian/golang-go/usr/lib/go/pkg
 	find $(CURDIR)/debian/golang-go/usr/lib/go/pkg -exec touch -r $(CURDIR)/debian/golang-go/usr/lib/go/pkg {} \;
+endif
 
 override_dh_strip:
 	# strip disabled as golang upstream doesn't support it and it makes go
@@ -97,6 +104,17 @@ override_dh_prep:
 	dh_prep
 	echo 'go:Hostarch=$(GOHOSTARCH)' >> debian/golang-go.substvars
 
+override_dh_installdeb:
+	dh_installdeb
+ifeq (,$(filter $(DEB_HOST_ARCH),$(golang_archs)))
+	: # these are empty dependency packages
+	rm -f debian/golang-go/DEBIAN/p*
+	rm -rf debian/golang-go/usr/share/man
+	install -d -m 755 debian/golang-src/usr/share/go/src
+	install -d -m 755 debian/golang-src/usr/share/go/include
+	install -d -m 755 debian/golang-src/usr/share/go/test
+endif
+
 override_dh_builddeb:
 	dh_builddeb -- -Zxz
 
@@ -104,6 +122,7 @@ override_dh_shlibdeps:
 	dh_shlibdeps -Xtestdata -Xtest
 
 debian/build.stamp:
+ifneq (,$(filter $(DEB_HOST_ARCH),$(golang_archs)))
 	rm -f debian/build.stamp
 	mkdir -p $(GOBIN)
 	# Build native tools first, then bootstrap all other GOOS/GOARCH combinations.
@@ -122,6 +141,9 @@ debian/build.stamp:
 		cd ..; \
 	${FOR_GO_ARCH_END}
 	>debian/build.stamp
+else
+	touch debian/build.stamp
+endif
 
 opt_no_act =
 RUN_TEST := true
@@ -142,13 +164,6 @@ GOROOT := $(CURDIR)
 GOROOT_FINAL := $(libexecdir)
 GOBIN := $(CURDIR)$(bindir)
 GOARM :=
-
-# Always use the 387 floating point unit instead of sse2. This is important to
-# ensure that the binaries we build (both when compiling golang on the buildds
-# and when users cross-compile for 386) can actually run on older CPUs (where
-# old means e.g. an AMD Athlon XP 2400+). See http://bugs.debian.org/753160 and
-# https://code.google.com/p/go/issues/detail?id=8152
-GO386 := 387
 
 DEB_HOST_ARCH := $(shell dpkg-architecture -qDEB_HOST_ARCH 2>/dev/null)
 DEB_HOST_ARCH_OS := $(shell dpkg-architecture -qDEB_HOST_ARCH_OS 2>/dev/null)
@@ -183,7 +198,7 @@ else ifeq ($(DEB_BUILD_ARCH_CPU), arm)
 else ifeq ($(DEB_BUILD_ARCH_CPU), armhf)
     GOHOSTARCH := arm
 else
-    $(error unrecognized build host instruction set $(DEB_HOST_ARCH_CPU)!)
+#    $(error unrecognized build host instruction set $(DEB_HOST_ARCH_CPU)!)
 endif
 
 ifeq ($(DEB_HOST_ARCH_CPU), i386)
@@ -204,9 +219,9 @@ else
     $(error unrecognized arm architecture $(DEB_HOST_ARCH)!)
 endif
 else
-    $(error unrecognized instruction set $(DEB_HOST_ARCH_CPU)!)
+#    $(error unrecognized instruction set $(DEB_HOST_ARCH_CPU)!)
 endif
 
-export GOROOT GOROOT_FINAL GOOS GOARCH GOARM GOBIN GOHOSTARCH GOHOSTOS GO386
+export GOROOT GOROOT_FINAL GOOS GOARCH GOARM GOBIN GOHOSTARCH GOHOSTOS
 
 .PHONY: build clean install binary-arch binary-indep binary

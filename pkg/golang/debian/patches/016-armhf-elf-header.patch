@@ -2,11 +2,11 @@ Description: Use correct ELF header for armhf binaries.
 Author: Adam Conrad <adconrad@ubuntu.com>
 Last-Update: 2013-07-08
 
-Index: golang-1.3/src/cmd/ld/elf.c
+Index: golang-1.3.2/src/cmd/ld/elf.c
 ===================================================================
---- golang-1.3.orig/src/cmd/ld/elf.c	2014-06-19 01:26:27.000000000 +0100
-+++ golang-1.3/src/cmd/ld/elf.c	2014-06-23 22:04:49.040724543 +0100
-@@ -57,7 +57,11 @@
+--- golang-1.3.2.orig/src/cmd/ld/elf.c
++++ golang-1.3.2/src/cmd/ld/elf.c
+@@ -57,7 +57,11 @@ elfinit(void)
  	case '5':
  		// we use EABI on both linux/arm and freebsd/arm.
  		if(HEADTYPE == Hlinux || HEADTYPE == Hfreebsd)

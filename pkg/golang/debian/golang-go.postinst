@@ -19,9 +19,20 @@ case "$1" in
 		rm -f $conffile
 		rmdir /etc/golang || true
 	fi
-	update-alternatives --force --install /usr/bin/go go /usr/bin/golang-go 10
-	# Very ugly hack to set timestamps same as /usr/bin/go
-	find /usr/lib/go/pkg -exec touch -r /usr/bin/golang-go {} \;
+	# Very ugly hack to set timestamps same as /usr/lib/go/bin/go
+	find /usr/lib/go/pkg -exec touch -r /usr/lib/go/bin/go {} \;
+	# Setup alternatives
+	# Priority: base of 100 + go version; 1.4.2 = 100 + 42)
+	go=$(/usr/lib/go/bin/go version | awk '{ gsub(/^go1|[.]/, "", $3); print $3 }')
+	priority=$(( 100 + $go ))
+	if [ -n "$2" ] && dpkg --compare-versions "$2" le 2:1.3.3-1ubuntu2; then
+	    update-alternatives --remove go /usr/bin/golang-go
+	fi
+	update-alternatives \
+		--install /usr/bin/go go /usr/lib/go/bin/go $priority \
+		--slave /usr/bin/gofmt gofmt /usr/lib/go/bin/gofmt
+
+	touch --no-dereference -r /usr/lib/go/bin/go /usr/bin/go
 	;;
     *)
 	;;

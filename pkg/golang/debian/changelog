@@ -1,29 +1,117 @@
-golang (2:1.4.2-1~ppa1precise1) precise; urgency=medium
+golang (2:1.4.3-1~ppa1precise1) precise; urgency=low
 
   * Backport to precise
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Tue, 10 Mar 2015 20:21:43 +0000
+ -- Alex Tomlins <alex@tomlins.org.uk>  Wed, 30 Sep 2015 22:06:44 +0100
 
-golang (2:1.4.2-1~ppa1) trusty; urgency=medium
+golang (2:1.4.3-1~ppa1) trusty; urgency=low
 
-  * New upstream release 1.4.2
-  * Pull in changes from debian packaging
+  * New upstream release
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Tue, 10 Mar 2015 20:19:24 +0000
+ -- Alex Tomlins <alex@tomlins.org.uk>  Wed, 30 Sep 2015 22:05:33 +0100
 
-golang (2:1.3-1~ppa1) precise; urgency=low
+golang (2:1.4.2-3ubuntu2) wily; urgency=medium
 
-  * Pull in changes from debian
-  * New upstream version.
-  * Drop patches merged upstream:
-    - debian/patches/add-src-pkg-debug-elf-testdata-hello.patch
-    - debian/patches/add-tar-xattr-support.patch
-  * Fix debian/watch (Thanks Tianon) (Closes: #748290)
-  * Remove dangling symlink /usr/lib/go/lib/godoc (Closes: #747968)
+  * Fix installation of fake golang-go package.
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Mon, 23 Jun 2014 21:39:16 +0100
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 27 May 2015 12:54:55 +0200
 
-golang (2:1.2.1-2ubuntu1) trusty; urgency=low
+golang (2:1.4.2-3ubuntu1) wily; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build empty golang-go and golang-src packages on architectures
+      without golang support, and depend on gccgo instead.
+    - golang-go: Conflict with golang-go (<< 2:1.3.3-1ubuntu2).
+    - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
+    - d/copyright: Amendments for full compliance with copyright format.
+  * Remove generated override files.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 26 May 2015 15:05:11 +0200
+
+golang (2:1.4.2-3) unstable; urgency=medium
+
+  * Add missing "prerm" for our new alternatives (thanks piuparts).
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Tue, 05 May 2015 17:38:37 -0600
+
+golang (2:1.4.2-2) unstable; urgency=medium
+
+  * Move "go" and "gofmt" into "/usr/lib/go" and use alternatives to provide
+    appropriate symlinks (Closes: #779503, #782301).
+  * Relax "golang-go.tools" relationship to Suggests (from Recommends).
+  * Add "go get" VCS options to Suggests for golang-go (bzr, git, mercurial,
+    subversion).
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Tue, 05 May 2015 00:37:53 -0600
+
+golang (2:1.4.2-1) unstable; urgency=medium
+
+  * New upstream version
+    (https://golang.org/doc/devel/release.html#go1.4.minor)
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Sat, 02 May 2015 10:06:34 -0600
+
+golang (2:1.4.1-1~exp1) experimental; urgency=low
+
+  * New upstream version (https://golang.org/doc/go1.4)
+    - all editor support files have been removed from misc/ upstream upstream,
+      so golang-mode, kate-syntax-go, and vim-syntax-go can no longer be
+      provided; see https://github.com/golang/go/wiki/IDEsAndTextEditorPlugins
+      for an upstream-maintained list of potential replacements
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Fri, 16 Jan 2015 00:52:10 -0500
+
+golang (2:1.3.3-1ubuntu4) vivid; urgency=medium
+
+  * Build empty golang-go and golang-src packages on architectures
+    without golang support, and depend on gccgo instead.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 10 Mar 2015 21:46:25 +0100
+
+golang (2:1.3.3-1ubuntu3) vivid; urgency=medium
+
+  * Regenerate the control file.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 03 Mar 2015 14:08:51 +0100
+
+golang (2:1.3.3-1ubuntu2) vivid; urgency=medium
+
+  * Install gofmt as an alternative.
+  * Update the update-alternatives dance.
+  * golang-go: Conflict with golang-go (<< 2:1.3.3-1ubuntu2).
+  * Bump the alternative priority to 100, see Debian #779503.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 03 Mar 2015 13:29:34 +0100
+
+golang (2:1.3.3-1ubuntu1) vivid; urgency=low
+
+  * Merge from Debian unstable. (LP: #1407409) Remaining changes:
+    - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
+    - Support co-installability with gccgo-go tool:
+      - d/rules,golang-go.install: Rename bin/go -> bin/golang-go
+      - d/golang-go.{postinst,prerm}: Install/remove /usr/bin/go using
+        alternatives.
+    - d/copyright: Amendments for full compiliance with copyright format.
+    - d/control: Demote golang-go.tools to Suggests to support Ubuntu MIR.
+
+ -- Gianfranco Costamagna <costamagnagianfranco@yahoo.it>  Sun, 04 Jan 2015 12:18:38 +0100
+
+golang (2:1.3.3-1) unstable; urgency=medium
+
+  * New upstream version (https://code.google.com/p/go/source/list?name=go1.3.3)
+    - time: removed from tests now obsolete assumption about Australian tz
+      abbreviations
+    - net: temporarily skip TestAcceptIgnoreSomeErrors
+    - runtime: hide cgocallback_gofunc calling cgocallbackg from linker
+    - runtime: fix GOTRACEBACK reading on Windows, Plan 9
+    - nacltest.bash: unset GOROOT
+    - cmd/5l, cmd/6l, cmd/8l: fix nacl binary corruption bug
+  * Add Paul and myself as uploaders. Many, many thanks to Michael for his work
+    so far on this package (and hopefully more to come).
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Fri, 12 Dec 2014 16:11:02 -0500
+
+golang (2:1.3.2-1ubuntu1) vivid; urgency=medium
 
   * Merge from Debian unstable.  Remaining changes:
     - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
@@ -31,18 +119,67 @@ golang (2:1.2.1-2ubuntu1) trusty; urgency=low
       - d/rules,golang-go.install: Rename bin/go -> bin/golang-go
       - d/golang-go.{postinst,prerm}: Install/remove /usr/bin/go using
         alternatives.
-    - Fixes from golang trunk for better gccgo support (LP: #1271335):
-      - d/p/issue27650045_40001_50001.diff:
-        cmd/go: test: do not put object files where later steps will find them
-      - d/p/issue28050043_60001_70001.diff:
-        cmd/go: When linking with gccgo pass .a files in the order they are
-        discovered
-      - d/p/issue54790044_100001_110001.diff:
-        cmd/go: do not require a valid archChar when using -compiler gccgo
     - d/copyright: Amendments for full compiliance with copyright format.
     - d/control: Demote golang-go.tools to Suggests to support Ubuntu MIR.
+    - dropped patches (now upstream):
+      - d/p/issue27650045_40001_50001.diff
+      - d/p/issue28050043_60001_70001.diff
+      - d/p/issue54790044_100001_110001.diff
 
- -- James Page <james.page@ubuntu.com>  Thu, 20 Mar 2014 10:19:36 +0000
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Tue, 18 Nov 2014 15:12:26 -0600
+
+golang (2:1.3.2-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Fri, 26 Sep 2014 23:21:45 +0200
+
+golang (2:1.3.1-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Wed, 13 Aug 2014 09:15:58 +0200
+
+golang (2:1.3-4) unstable; urgency=medium
+
+  [ Tianon Gravi ]
+  * update debian/watch for upstream's latest move (Closes: #756415)
+  * backport archive/tar patch to fix PAX headers (Closes: #756416)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Sat, 02 Aug 2014 21:02:24 +0200
+
+golang (2:1.3-3) unstable; urgency=medium
+
+  * don’t depend on emacs23, depend on emacs instead (Closes: #754013)
+  * install include/ in golang-src, VERSION in golang-go (Closes: #693186)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Mon, 07 Jul 2014 08:30:50 +0200
+
+golang (2:1.3-2) unstable; urgency=medium
+
+  * Add /usr/lib/go/test symlink
+  * Build with GO386=387 to favor the 387 floating point unit over sse2
+    instructions (Closes: #753160)
+  * Add debian/patches/0001-backport-delete-whole-line.patch to fix a
+    deprecation warning about flet in the emacs part of golang-mode
+    (Closes: #753607)
+  * Migrate to emacsen >2 (Closes: #753607)
+  * Backport two patches to improve archive/tar performance (for docker):
+    debian/patches/0002-archive-tar-reuse-temporary-buffer-in-writeHeader.patch
+    debian/patches/0003-archive-tar-reuse-temporary-buffer-in-readHeader.patch
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Thu, 03 Jul 2014 23:33:46 +0200
+
+golang (2:1.3-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Drop patches merged upstream:
+    - debian/patches/add-tar-xattr-support.patch
+    - debian/patches/add-tar-xattr-support.patch
+  * Fix debian/watch (Thanks Tianon) (Closes: #748290)
+  * Remove dangling symlink /usr/lib/go/lib/godoc (Closes: #747968)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Thu, 19 Jun 2014 09:23:36 +0200
 
 golang (2:1.2.1-2) unstable; urgency=low
 
@@ -50,32 +187,6 @@ golang (2:1.2.1-2) unstable; urgency=low
     uploading 1.2.1-1; sorry about that.
 
  -- Michael Stapelberg <stapelberg@debian.org>  Sat, 08 Mar 2014 20:01:12 +0100
-
-golang (2:1.2.1-1ubuntu2) trusty; urgency=medium
-
-  * d/control: Demote golang-go.tools to Suggests to support Ubuntu MIR. 
-
- -- James Page <james.page@ubuntu.com>  Mon, 17 Mar 2014 11:26:56 +0000
-
-golang (2:1.2.1-1ubuntu1) trusty; urgency=medium
-
-  * Merge with Debian; remaining changes:
-    - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
-    - Support co-installability with gccgo-go tool:
-      - d/rules,golang-go.install: Rename bin/go -> bin/golang-go
-      - d/golang-go.{postinst,prerm}: Install/remove /usr/bin/go using
-        alternatives.
-    - Fixes from golang trunk for better gccgo support (LP: #1271335):
-      - d/p/issue27650045_40001_50001.diff:
-        cmd/go: test: do not put object files where later steps will find them
-      - d/p/issue28050043_60001_70001.diff:
-        cmd/go: When linking with gccgo pass .a files in the order they are
-        discovered
-      - d/p/issue54790044_100001_110001.diff:
-        cmd/go: do not require a valid archChar when using -compiler gccgo
-    - d/copyright: Amendments for full compiliance with copyright format.
-
- -- Matthias Klose <doko@ubuntu.com>  Fri, 07 Mar 2014 06:03:18 +0000
 
 golang (2:1.2.1-1) unstable; urgency=low
 
@@ -90,53 +201,12 @@ golang (2:1.2-3) unstable; urgency=low
 
  -- Michael Stapelberg <stapelberg@debian.org>  Mon, 24 Feb 2014 19:34:16 +0100
 
-golang (2:1.2-2ubuntu3) trusty; urgency=medium
-
-  * d/copyright: Drop incorrect Comment block in headers.
-
- -- James Page <james.page@ubuntu.com>  Mon, 27 Jan 2014 10:18:33 +0000
-
-golang (2:1.2-2ubuntu2) trusty; urgency=medium
-
-  * Support co-installability with gccgo-go tool:
-    - d/rules,golang-go.install: Rename bin/go -> bin/golang-go
-    - d/golang-go.{postinst,prerm}: Install/remove /usr/bin/go using
-      alternatives.
-  * Fixes from golang trunk for better gccgo support (LP: #1271335):
-    - d/p/issue27650045_40001_50001.diff:
-      cmd/go: test: do not put object files where later steps will find them
-    - d/p/issue28050043_60001_70001.diff:
-      cmd/go: When linking with gccgo pass .a files in the order they are
-      discovered
-    - d/p/issue54790044_100001_110001.diff:
-      cmd/go: do not require a valid archChar when using -compiler gccgo
-  * d/copyright: Amendments for full compiliance with copyright format.
-
- -- James Page <james.page@ubuntu.com>  Mon, 27 Jan 2014 09:55:27 +0000
-
-golang (2:1.2-2ubuntu1) trusty; urgency=low
-
-  * Merge from Debian unstable.  Remaining changes:
-    - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
-
- -- James Page <james.page@ubuntu.com>  Mon, 06 Jan 2014 09:37:23 +0000
-
 golang (2:1.2-2) unstable; urgency=low
 
   * add patches/add-src-pkg-debug-elf-testdata-hello.patch to provide source
     for the testdata/ ELF binaries (Closes: #716853)
 
  -- Michael Stapelberg <stapelberg@debian.org>  Tue, 31 Dec 2013 18:28:29 +0100
-
-golang (2:1.2-1ubuntu1) trusty; urgency=low
-
-  * Merge from Debian unstable.  Remaining changes:
-    - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
-  * Dropped changes, no longer required:
-    - d/control,control.cross: Update Breaks/Replaces for Ubuntu
-      versions to ensure smooth upgrades, regenerate control file.
-
- -- James Page <james.page@ubuntu.com>  Wed, 04 Dec 2013 11:13:08 +0000
 
 golang (2:1.2-1) unstable; urgency=low
 
@@ -148,30 +218,12 @@ golang (2:1.2-1) unstable; urgency=low
 
  -- Michael Stapelberg <stapelberg@debian.org>  Mon, 02 Dec 2013 23:57:24 +0100
 
-golang (2:1.1.2-3ubuntu1) trusty; urgency=low
-
-  * Merge from Debian unstable.  Remaining changes:
-    - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
-    - d/control,control.cross: Update Breaks/Replaces for Ubuntu
-      versions to ensure smooth upgrades, regenerate control file.
-
- -- James Page <james.page@ubuntu.com>  Wed, 27 Nov 2013 12:12:43 +0000
-
 golang (2:1.1.2-3) unstable; urgency=low
 
   * cherry-pick upstream commit: archive-tar-fix-links-and-pax.patch
     (Closes: #730566)
 
  -- Michael Stapelberg <stapelberg@debian.org>  Tue, 26 Nov 2013 18:59:27 +0100
-
-golang (2:1.1.2-2ubuntu1) saucy; urgency=low
-
-  * Merge from Debian unstable (LP: #1211749, #1202027). Remaining changes:
-    - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
-    - d/control,control.cross: Update Breaks/Replaces for Ubuntu
-      versions to ensure smooth upgrades, regenerate control file.
-
- -- James Page <james.page@ubuntu.com>  Tue, 20 Aug 2013 14:06:23 +0100
 
 golang (2:1.1.2-2) unstable; urgency=low
 
@@ -192,15 +244,6 @@ golang (2:1.1.2-1) unstable; urgency=low
 
  -- Michael Stapelberg <stapelberg@debian.org>  Tue, 13 Aug 2013 13:47:58 +0200
 
-golang (2:1.1.1-4ubuntu1) saucy; urgency=low
-
-  * Merge from Debian unstable.  Remaining changes:
-    - 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
-    - d/control,control.cross: Update Breaks/Replaces for Ubuntu
-      versions to ensure smooth upgrades, regenerate control file.
-
- -- James Page <james.page@ubuntu.com>  Mon, 05 Aug 2013 15:35:05 +0100
-
 golang (2:1.1.1-4) unstable; urgency=low
 
   * Disable stripping, it breaks go binaries on some architectures. This drops
@@ -208,26 +251,6 @@ golang (2:1.1.1-4) unstable; urgency=low
     (Closes: #717172)
 
  -- Michael Stapelberg <stapelberg@debian.org>  Wed, 17 Jul 2013 19:15:18 +0200
-
-golang (2:1.1.1-3ubuntu3) saucy; urgency=low
-
-  * Disable upstream-unsupported stripping of binaries to fix go crash
-    (LP: #1200255).
-
- -- Robie Basak <robie.basak@ubuntu.com>  Wed, 17 Jul 2013 10:43:11 +0000
-
-golang (2:1.1.1-3ubuntu2) saucy; urgency=low
-
-  * d/control,control.cross: Update Breaks/Replaces for Ubuntu
-    versions to fix broken upgrades, regenerate control file. 
-
- -- James Page <james.page@ubuntu.com>  Mon, 15 Jul 2013 14:54:48 +0100
-
-golang (2:1.1.1-3ubuntu1) saucy; urgency=low
-
-  * 016-armhf-elf-header.patch: Use correct ELF header for armhf binaries.
-
- -- James Page <james.page@ubuntu.com>  Mon, 15 Jul 2013 11:14:07 +0100
 
 golang (2:1.1.1-3) unstable; urgency=low
 
@@ -685,4 +708,3 @@ golang (2011.02.01.1-1) unstable; urgency=low
   * Remove codereview directory - some python code to deal with mercurial
 
  -- Ondřej Surý <ondrej@debian.org>  Mon, 14 Feb 2011 17:42:39 +0100
-
