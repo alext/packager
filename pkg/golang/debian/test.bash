@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -e
-eval $($1/dist env -p)
-bash run.bash --no-rebuild --banner
+eval $(./bin/go tool dist env -p)
+bash run.bash --no-rebuild -banner ""
