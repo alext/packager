@@ -21,7 +21,6 @@ PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
 DAEMON_USER="heating-controller"
-ZONES=""
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
@@ -29,7 +28,7 @@ ZONES=""
 # Read configuration variable file if it is present
 [ -r /etc/default/$NAME ] && . /etc/default/$NAME
 
-DAEMON_ARGS="-log=${LOGFILE} -zones=${ZONES}"
+DAEMON_ARGS="-log=${LOGFILE}"
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh

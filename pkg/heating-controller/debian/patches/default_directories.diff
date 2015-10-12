@@ -1,17 +1,16 @@
-Description: Update default data and template directories to reflect packaging.
+Description: Update default file locations to reflect packaging.
 
-Index: heating-controller-0-152-gfae7984/main.go
+Index: heating-controller-0-164-g3da44c6/main.go
 ===================================================================
---- heating-controller-0-152-gfae7984.orig/main.go	2015-06-21 16:21:46.000000000 +0100
-+++ heating-controller-0-152-gfae7984/main.go	2015-06-21 16:53:29.865591439 +0100
-@@ -17,8 +17,8 @@
- )
- 
+--- heating-controller-0-164-g3da44c6.orig/main.go
++++ heating-controller-0-164-g3da44c6/main.go
+@@ -19,6 +19,6 @@
  const (
--	defaultDataDir = "./data"
--	templateDir    = "webserver/templates"
-+	defaultDataDir = "/var/lib/heating-controller/data"
-+	templateDir    = "/usr/share/heating-controller/templates"
+-	defaultConfigFile = "./config.json"
+-	defaultDataDir    = "./data"
++	defaultConfigFile = "/etc/heating-controller.json"
++	defaultDataDir    = "/var/lib/heating-controller/data"
+ 	defaultPort       = 8080
+-	templateDir       = "webserver/templates"
++	templateDir       = "/usr/share/heating-controller/templates"
  )
- 
- var (

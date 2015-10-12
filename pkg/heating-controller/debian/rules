@@ -3,8 +3,12 @@
 # Uncomment this to turn on verbose mode.
 # export DH_VERBOSE=1
 
-export GOPATH:=$(CURDIR)/gopath:$(CURDIR)/Godeps/_workspace
+include /usr/share/dpkg/pkg-info.mk
+
+export GOPATH:=$(CURDIR)/gopath
 export PATH:=$(GOPATH)/bin:$(PATH)
+
+export RELEASE_VERSION=$(DEB_VERSION_UPSTREAM)
 
 %:
 	dh $@
@@ -12,7 +16,10 @@ export PATH:=$(GOPATH)/bin:$(PATH)
 override_dh_auto_build:
 	mkdir -p $(CURDIR)/gopath/src/github.com/alext
 	ln -s ../../../.. $(CURDIR)/gopath/src/github.com/alext/heating-controller
-	go build -o heating-controller
+	make
+
+# We have CI for this. No need to run tests at packaging time
+override_dh_auto_test:
 
 # Disable stripping golang binaries.
 override_dh_strip:

@@ -1,3 +1,9 @@
+heating-controller (0-164-g3da44c6-1) stable; urgency=low
+
+  * New version with config file.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Mon, 12 Oct 2015 12:27:45 +0100
+
 heating-controller (0-158-g5c9d95b-1) stable; urgency=low
 
   * Initial release

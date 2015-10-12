@@ -1,2 +1,3 @@
 heating-controller usr/bin
 webserver/templates/* usr/share/heating-controller/templates
+debian/etc/heating-controller.json etc
