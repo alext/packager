@@ -1,3 +1,9 @@
+temperature-monitor (0-43-gcbbc136-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Tue, 08 Dec 2015 22:06:49 +0000
+
 temperature-monitor (0-31-gc4a62d5-1) unstable; urgency=low
 
   * New upstream release - reverted rewritten import paths
