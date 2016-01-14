@@ -1,3 +1,9 @@
+golang (2:1.5.3-1~ppa1) trusty; urgency=low
+
+  * New upstream release
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Thu, 14 Jan 2016 21:49:40 +0000
+
 golang (2:1.5.2-1~ppa1) trusty; urgency=low
 
   * New upstream release
