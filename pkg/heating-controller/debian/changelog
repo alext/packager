@@ -1,3 +1,9 @@
+heating-controller (0-174-gc349755-1) stable; urgency=low
+
+  * New upstream version.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Fri, 15 Jan 2016 22:03:52 +0000
+
 heating-controller (0-164-g3da44c6-1) stable; urgency=low
 
   * New version with config file.

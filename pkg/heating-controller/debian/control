@@ -2,7 +2,7 @@ Source: heating-controller
 Section: misc
 Priority: optional
 Maintainer: Alex Tomlins <alex@tomlins.org.uk>
-Build-Depends: debhelper (>= 8.0.0), golang (>= 2:1.5.1)
+Build-Depends: debhelper (>= 8.0.0), golang (>= 2:1.5.3)
 Standards-Version: 3.9.2
 Homepage: https://github.com/alext/heating-controller
 
