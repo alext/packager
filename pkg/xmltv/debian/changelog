@@ -1,3 +1,9 @@
+xmltv (0.5.68-1~ppa1) precise; urgency=medium
+
+  * New upstream release 0.5.68
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Thu, 02 Jun 2016 21:48:40 +0100
+
 xmltv (0.5.67-1~ppa1) precise; urgency=low
 
   * New upstream release 0.5.67

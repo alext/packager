@@ -28,9 +28,9 @@ debian/tmp/usr/bin/tv_grab_na_dd                    usr/bin
 debian/tmp/usr/bin/tv_grab_na_dtv                   usr/bin
 debian/tmp/usr/bin/tv_grab_na_tvmedia               usr/bin
 debian/tmp/usr/bin/tv_grab_nl                       usr/bin
-debian/tmp/usr/bin/tv_grab_no_gfeed                       usr/bin
 debian/tmp/usr/bin/tv_grab_pt                       usr/bin
 debian/tmp/usr/bin/tv_grab_pt_meo                   usr/bin
+debian/tmp/usr/bin/tv_grab_sd_json                  usr/bin
 debian/tmp/usr/bin/tv_grab_se_swedb                 usr/bin
 debian/tmp/usr/bin/tv_grab_se_tvzon                 usr/bin
 debian/tmp/usr/bin/tv_grab_tr                       usr/bin
@@ -79,9 +79,9 @@ debian/tmp/usr/share/man/man1/tv_grab_na_dd.1p      usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_nl.1p         usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_na_dtv.1p      usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_na_tvmedia.1p usr/share/man/man1
-debian/tmp/usr/share/man/man1/tv_grab_no_gfeed.1p         usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_pt.1p         usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_pt_meo.1p         usr/share/man/man1
+debian/tmp/usr/share/man/man1/tv_grab_sd_json.1p    usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_se_swedb.1p   usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_se_tvzon.1p   usr/share/man/man1
 debian/tmp/usr/share/man/man1/tv_grab_tr.1p         usr/share/man/man1
