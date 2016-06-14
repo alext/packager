@@ -1,3 +1,9 @@
+xmltv (0.5.68-1~ppa2) precise; urgency=low
+
+  * Update libwww-perl dependency min version - 0.5.68 requires at least 6.04
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Tue, 14 Jun 2016 21:09:01 +0100
+
 xmltv (0.5.68-1~ppa1) precise; urgency=medium
 
   * New upstream release 0.5.68
