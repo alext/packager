@@ -1,3 +1,9 @@
+password-store (1.6.5-3~ppa1) precise; urgency=medium
+
+  * Backport to precise.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Fri, 11 Nov 2016 11:12:46 +0000
+
 password-store (1.6.5-3) unstable; urgency=medium
 
   * Upgrade to debhelper v9.
