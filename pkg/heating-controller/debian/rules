@@ -20,6 +20,3 @@ override_dh_auto_build:
 
 # We have CI for this. No need to run tests at packaging time
 override_dh_auto_test:
-
-# Disable stripping golang binaries.
-override_dh_strip:
