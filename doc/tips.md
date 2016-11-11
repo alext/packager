@@ -2,14 +2,14 @@
 
 ## debuild arguments
 
-Additional arguments can be passed to `build_source.py`/`debuild` by using
+Additional arguments can be passed to `build_source.rb`/`debuild` by using
 the environment variable `DEBUILD_ARGS`.
 
 ### Unsigned source packages
 
 Useful for testing packages locally before rebuilding for submission:
 ```
-DEBUILD_ARGS="-uc -us" ./build_source.py pkg/foo
+DEBUILD_ARGS="-uc -us" ./build_source.rb pkg/foo
 ```
 Options "-uc -us": Build only the binary package(s) without signing the .changes file
 
@@ -17,7 +17,7 @@ Options "-uc -us": Build only the binary package(s) without signing the .changes
 
 Useful if your GPG key email address differs from the changelog entry:
 ```
-DEBUILD_ARGS="-k12345678" ./build_source.py pkg/foo
+DEBUILD_ARGS="-k12345678" ./build_source.rb pkg/foo
 ```
 
 ### Uploading tar files
@@ -32,7 +32,7 @@ would be like
 
 To fix this you can use -sa which uploads .tar.gz along the .changes
 ```
-DEBUILD_ARGS="-sa" ./build_source.py pkg/foo
+DEBUILD_ARGS="-sa" ./build_source.rb pkg/foo
 ```
 
 
