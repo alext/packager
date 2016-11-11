@@ -1,3 +1,10 @@
+heating-controller (0.1.0-1) stable; urgency=low
+
+  * Initial release version
+  * Adds thermostat support.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Fri, 11 Nov 2016 20:15:11 +0000
+
 heating-controller (0-174-gc349755-1) stable; urgency=low
 
   * New upstream version.
