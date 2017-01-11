@@ -1,16 +1,16 @@
 Description: Update default file locations to reflect packaging.
 
-Index: heating-controller-0-164-g3da44c6/main.go
-===================================================================
---- heating-controller-0-164-g3da44c6.orig/main.go
-+++ heating-controller-0-164-g3da44c6/main.go
-@@ -19,6 +19,6 @@
+diff --git a/main.go b/main.go
+index fe7b236..cde4b58 100644
+--- a/main.go
++++ b/main.go
+@@ -15,6 +15,6 @@ import (
  const (
--	defaultConfigFile = "./config.json"
--	defaultDataDir    = "./data"
-+	defaultConfigFile = "/etc/heating-controller.json"
-+	defaultDataDir    = "/var/lib/heating-controller/data"
- 	defaultPort       = 8080
--	templateDir       = "webserver/templates"
-+	templateDir       = "/usr/share/heating-controller/templates"
+-	defaultConfigFile  = "./config.json"
+-	defaultDataDir     = "./data"
++	defaultConfigFile  = "/etc/heating-controller.json"
++	defaultDataDir     = "/var/lib/heating-controller/data"
+ 	defaultPort        = 8080
+-	defaultTemplateDir = "webserver/templates"
++	defaultTemplateDir = "/usr/share/heating-controller/templates"
  )

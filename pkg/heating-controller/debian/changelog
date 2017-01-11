@@ -1,3 +1,9 @@
+heating-controller (0.1.1-1) stable; urgency=low
+
+  * Added more logging.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Wed, 11 Jan 2017 14:00:02 +0000
+
 heating-controller (0.1.0-1) stable; urgency=low
 
   * Initial release version
