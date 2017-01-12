@@ -22,7 +22,9 @@ class Changelog
       exit 1
     end
 
-    if out =~ /^Source: (.+)\nVersion: (?:\d+:)?([^-\n]+)/
+    # See https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Version for details
+    # of the version field
+    if out =~ /^Source: (.+)\nVersion: (?:\d+:)?([A-Za-z0-9.+:~-]*?)(?:-[^-\n]+)?\n/
       @source = $1
       @version = $2
     else
