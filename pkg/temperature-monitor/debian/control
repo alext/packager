@@ -2,7 +2,7 @@ Source: temperature-monitor
 Section: misc
 Priority: optional
 Maintainer: Alex Tomlins <alex@tomlins.org.uk>
-Build-Depends: debhelper (>= 8.0.0), golang (>= 2:1.5.2)
+Build-Depends: debhelper (>= 8.0.0), golang (>= 2:1.7) | golang (>= 2:1.7~1)
 Standards-Version: 3.9.4
 Homepage: https://github.com/alext/temperature-monitor
 

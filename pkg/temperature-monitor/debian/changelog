@@ -1,3 +1,9 @@
+temperature-monitor (0-53-g3793881-1) xenial; urgency=medium
+
+  * Support for push update sensors.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Thu, 12 Jan 2017 15:01:33 +0000
+
 temperature-monitor (0-43-gcbbc136-1) unstable; urgency=low
 
   * New upstream release
