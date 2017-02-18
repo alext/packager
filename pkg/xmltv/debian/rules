@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+export LC_ALL=C.UTF-8
+
 PERL=/usr/bin/perl
 
 %:
@@ -10,6 +12,7 @@ override_dh_installchangelogs:
 
 override_dh_install:
 	rm -rf $(CURDIR)/debian/tmp/usr/share/doc/xmltv-*					# We'll install our own documentation
+	rm -rf $(CURDIR)/debian/tmp/usr/share/xmltv/tv_grab_uk_atlas/cgi-bin/                   # Installed via dh_installexamples
 	dh_install --fail-missing          # see *.install for more information
 
 # I use strict-deps to ensure the package dependencies are correct at build

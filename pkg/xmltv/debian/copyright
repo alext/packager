@@ -1,16 +1,89 @@
-This package was debianized by Kenneth Pronovici <pronovic@debian.org> on
-Mon, 23 Sep 2002 21:33:39 -0500.
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: XMLTV
+Upstream-Contact: Nick Morrott <knowledgejunkie@gmail.com>
+Source: https://sourceforge.net/projects/xmltv/files/xmltv/
+Comment: This package was debianized by Kenneth Pronovici <pronovic@debian.org>
+  on Mon, 23 Sep 2002 21:33:39 -0500.
 
-It was downloaded from http://membled.com/work/apps/xmltv/
+Files: *
+Copyright: 2000-2016 Ed Avis and the XMLTV Development Team
+  Adam Allen (allena28)
+  Adam Lewandowski <adam@alewando.com> (alewando)
+  Alberto González Rodríguez <alberto@pesadilla.org> (atirc)
+  Andre Renaud <andre.renaud@hp.com> (chunkygoodness)
+  Andy Balaam <andybalaam@artificialworlds.net> (axis3x3)
+  Attila Nagy <nagy.attila.gabor@gmail.com> (attila_nagy)
+  Balazs Molnar <mbdev@freemail.hu> (mbdev)
+  Bruno Tavares <gawen@users.sourceforge.net> (gawen)
+  Chris Butler <chrisb@debian.org> (crispygoth)
+  Chris Owen <c_g_owen@hotmail.com> (candu_sf)
+  Chris Picton <chrisp@tangent.co.za> (cpicton)
+  Christian A. Rodriguez <car@cespi.unlp.edu.ar> (car_unlp)
+  Christian Wattengård <cwattengard@gmail.com> (christianw)
+  Cougar <xmltv@lost.data.ee> (zcougar)
+  Daniel Bittel <betlit@gmx.net> (betlit)
+  Davide Chiarini <davide.chiarini@gmail.com> (mnbjhguyt)
+  Ed Avis <ed@membled.com> (epaepa)
+  Eggert Thorlacius <eggert@thorlacius.com> (eggertthor)
+  Eric Bus (eborn)
+  Eric Castelnau <eric.castelnau@free.fr> (ecastelnau)
+  Francois Botha <igitur@gmail.com> (igitur)
+  Francois Gouget <fgouget@free.fr> (fgouget)
+  Gary Buhrmaster <gary.buhrmaster@gmail.com> (gtb)
+  Geoff Westcott <honir999@gmail.com> (bilbo_uk)
+  Jan Schneider <jan@horde.org> (yunosh)
+  Jerry Veldhuis <jerry@matilda.com> (jveldhuis)
+  Jesper Skov <jskov@zoftcorp.dk> (jskov)
+  Jesper Toft <jesper@bzimage.dk> (jtoft)
+  Karl Dietz <dekarl@spaetfruehstuecken.org> (dekarl)
+  Kenneth Pronovici <pronovic@skyjammer.com> (pronovic)
+  Kevin Groeneveld <kgroeneveld@gmail.com> (kgroeneveld1)
+  Ma Begaj <derliebegott@gmail.com> (ma_begaj)
+  Marcelo Toledo <marcelo@marcelotoledo.org> (mtoledo)
+  Mariano Cosentino <4XMLTV@marianok.com.ar> (marianok)
+  Mattias Holmlund <u82@m1.holmlund.se> (mattiasholmlund)
+  Max Becker <maxbecker@rocketmail.com> (b4max)
+  Michael Haas (mihaas)
+  Mike Dubman <mike.dubman@gmail.com> (dubman)
+  Neil Garratt <ngarratt@gmail.com> (ngarratt)
+  Nick Morrott <knowledgejunkie@gmail.com> (knowledgejunkie)
+  Niel Markwick <nielm@bigfoot.com> (nielm)
+  Or Cohen <or.cohen007@gmail.com> (lightpriest)
+  Patric Mueller <bhaak@gmx.net> (bhaak)
+  Per Lundberg <perlun@gmail.com> (perlundberg)
+  Ramon Roca <Ramon.Roca@XCombo.com> (ramonroca)
+  Robert Eden <rmeden@gmail.com> (rmeden)
+  Rod Roark <rod@sunsetsystems.com> (sunsetsystems)
+  Staffan Malmgren <staffan@tomtebo.org> (staffanmalmgren)
+  Stefan Becker <stefan.becker@nokia.com> (stefanb2)
+  Stefan Siegl <stesie@brokenpipe.de> (stesie)
+  Sylvain Fabre <centraladmin@lahiette.com> (reudeudeu)
+  Søren Pingel Dalsgaard <soren@dalsgaards.dk> (pingel)
+  Takeru Komoriya <komoriya@paken.org> (komoriya)
+  Thomas Horsten <thomas@horsten.com> (thh)
+  Ville Ahonen <ville-xmltv@thesubmachine.com> (va1210)
+License: GPL-2
 
-Upstream Author: Ed Avis <ed@membled.com>
+Files: debian/*
+Copyright: 2002-2006 Kenneth Pronovici <pronovic@debian.org>
+  2006-2012 Chris Butler <chrisb@debian.org>
+  2015-2017 Nick Morrott <knowledgejunkie@gmail.com>
+License: GPL-2
 
-Copyright:
-
-   This is free software distributed under the GPL, see COPYING.  But if
-   you would like to use the code under some other conditions, please do
-   ask.  Contributors include Gottfried Szing, Jerry Veldhuis and Robert
-   Eden.
-
-On Debian systems, the complete text of the GNU General Public License can
-be found in `/usr/share/common-licenses/GPL'.
+License: GPL-2
+  This package is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; version 2 dated June, 1991.
+  .
+  This package is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  .
+  You should have received a copy of the GNU General Public License
+  along with this package; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+  USA.
+  .
+  On Debian systems, the complete text of the GNU General Public License
+  version 2 can be found in /usr/share/common-licenses/GPL-2

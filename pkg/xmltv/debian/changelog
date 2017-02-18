@@ -1,41 +1,144 @@
-xmltv (0.5.68-1~ppa2) precise; urgency=low
+xmltv (0.5.69-1) unstable; urgency=medium
 
-  * Update libwww-perl dependency min version - 0.5.68 requires at least 6.04
+  * New upstream release
+    - tv_grab_zz_sdjson_sqlite: new grabber ($$) for 50+ countries
+    - tv_grab_hr: grabber removed
+    - tv_grab_pt: grabber removed
+    - tv_grab_uk_atlas: grabber removed
+  * Remove spelling-error-in-manpage.patch (applied upstream)
+  * Remove disable_tv_grab_uk_rt.patch (applied upstream)
+  * debian/copyright: update copyright years
+  * debian/copyright: refresh upstream copyright holders
+  * debian/copyright: remove bad addresses (duck)
+  * debian/control: refresh (build-) dependencies
+  * debian/NEWS: refresh announcement of important grabber changes
+  * debian/xmltv-util.install: refresh installation files
+  * Add spelling-error-in-manpage.patch
+  * Refresh autopkgtest.patch for new tests
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Tue, 14 Jun 2016 21:09:01 +0100
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Tue, 24 Jan 2017 17:00:06 +0000
 
-xmltv (0.5.68-1~ppa1) precise; urgency=medium
+xmltv (0.5.68-2) unstable; urgency=medium
 
-  * New upstream release 0.5.68
+  * Update spelling-error-in-manpage.patch
+  * Reproducible build improvements
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Thu, 02 Jun 2016 21:48:40 +0100
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Wed, 23 Nov 2016 19:55:01 +0100
 
-xmltv (0.5.67-1~ppa1) precise; urgency=low
+xmltv (0.5.68-1) unstable; urgency=medium
 
-  * New upstream release 0.5.67
+  * New maintainer. Thanks to Chris Butler for his work as the previous
+    maintainer of the package.
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 29 Aug 2015 16:20:13 +0100
+  * Update Vcs-* to use current Github packaging repository
+  * Remove unapply-patches from debian/source/local-options
+  * Add disable_tv_grab_uk_rt.patch to disable uk_rt grabber
+  * Update dependencies for tv_grab_sd_json
+  * Add autopkgtest.patch to allow tests to run against installed source
+  * Add d/tests/pkg-perl/smoke-files to make test data available
 
-xmltv (0.5.66-1~ppa1) precise; urgency=low
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Fri, 22 Jul 2016 14:24:48 +0100
 
-  * New upstream release 0.5.66
-  * Remove tv_to_text fix (fixed upstream)
+xmltv (0.5.68-0.1) unstable; urgency=medium
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 20 Dec 2014 18:54:03 +0000
+  * Non-maintainer upload
+  * New upstream release
+    - tv_grab_sd_json: new grabber ($$) for 50+ countries inc. UK/Ireland
+    - tv_grab_uk_rt: deprecated pending closure of listings service
+    - tv_grab_uk_atlas: deprecated due to changes to Atlas terms/conditions
+    - tv_grab_na_dd: allow negative day offsets (closes: #814819)
+    - tv_grab_no_gfeed: broken grabber removed
+  * Removed eu_dotmedia_pod2man_warnings patch (applied upstream)
+  * Add xmltv-gui.lintian-overrides
+  * Add spelling-error-in-manpage.patch
+  * Standards-Version 3.9.8 (no changes required)
+  * Update debhelper compatibility to version 9
+  * Remove perl-modules from Build-Depends-Indep/Depends
+  * Remove unnecessary versioned dependencies
 
-xmltv (0.5.65-1~ppa2) precise; urgency=medium
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Thu, 02 Jun 2016 21:26:48 +0100
 
-  * New upstream release 0.5.65
-  * Added patch fixing tv_to_text
-  * Removed patch fixing tv_grab_huro (fixed upstream)
+xmltv (0.5.67-0.1) unstable; urgency=low
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 04 Oct 2014 16:45:37 +0100
+  * Non-maintainer upload.
+  * New upstream release
+    - tv_grab_eu_dotmedia: new grabber for Europe
+    - tv_grab_tr: new grabber for Turkey
+    - tv_grab_fr: adjustments for site changes
+    - tv_grab_pt: adjustments for site changes
+    - tv_grab_za: broken grabber removed
+    - tv_augment: new tool for augmenting listings data
+  * Added patch to fix pod2man warning for tv_grab_eu_dotmedia
+  * Removed patch tv_grab_pt_use_encode - fixed upstream
+  * Removed patch tv_grab_pt_remove_utf8simple_refs - fixed upstream
+  * Removed patch tv_grab_dk_dr_add_initial_pod - fixed upstream
+  * Removed patch tv_grab_tr_add_initial_pod - fixed upstream
+  * Removed patch pod_updates_for_lintian_warnings - fixed upstream
+  * Removed patch pod_updates_for_typos - fixed upstream
+  * Removed patch date_manip_deprecation_warnings - fixed upstream
+  * Removed patch pod_remove_unused_rooturl_option - fixed upstream
+  * Removed patch silence_progress_messages_quiet - fixed upstream
+  * Removed patch utf8_decode_raw_octets_get_nice_tree - fixed upstream
+  * Removed patch update_na_dtv_test_conf - fixed upstream
+  * Removed patch tv_grab_il_site_changes - fixed upstream
 
-xmltv (0.5.63-2~ppa1) precise; urgency=medium
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Wed, 26 Aug 2015 02:30:28 +0100
 
-  * PPA build
+xmltv (0.5.66-0.1) unstable; urgency=low
 
- -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 04 Oct 2014 16:41:24 +0100
+  * Non-maintainer upload.
+  * New upstream release (closes: #753570, #475346, #399389)
+    - added new grabbers: na_tvmedia, tr
+    - removed non-functional grabber: uk_guardian
+    - tv_imdb: encoding improvements since 0.5.65 (closes: #289611)
+    - tv_sort: major performance improvements
+    - tv_grab_ar: adjustments for site changes
+    - tv_grab_es_laguiatv: fixes for source site changes (closes: #752893)
+    - tv_grab_huro: fixes for source site changes (closes: #781593)
+    - tv_grab_is: adjustments for site changes
+    - tv_grab_na_dd: adjustments for source changes (closes: #766271)
+    - tv_grab_na_dtv: now uses parallel processes
+    - tv_grab_pt: adjustments for site changes
+  * Updated to Standards-Version 3.9.6 (no changes required)
+  * Updated debian/copyright to Copyright Format 1.0
+  * Added dependency on libxml-treepp-perl for tv_count and tv_merge
+  * Added dependency on libfile-chdir-perl for test_grabbers
+  * Added patches to remove dependency on Unicode::UTF8simple for tv_grab_pt
+  * Added patches to resolve man and pod2man lintian warnings
+  * Added patch to remove usage of deprecated Date::Manip variable
+  * Added patch to fix tv_grab_il after site changes
+  * Added patch to remove unused --root-url option
+  * Added patch to silence progress messages when --quiet is used
+  * Added patch to improve testing reliability for na_dtv
+  * Added patch to automatically decode raw octets to utf-8 in get_nice_*
+  * Removed patch tv_to_text_fix_tests - fixed upstream
+  * Removed patch xmltv-data-recursive-encode-perldoc - fixed upstream
+
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Tue, 30 Jun 2015 16:55:50 +0100
+
+xmltv (0.5.65-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream release
+    - (re)added grabbers: dk_dr, dtv_la, fi_sv, nl, pt
+    - tv_grab_es_laguiatv: fixes for source site changes
+    - tv_grab_huro: fixes for source site changes
+  * Refreshed patches
+  * Added patch to fix tv_to_text errors
+  * Added patch to handle XMLTV::Data::Recursive::Encode wrapper
+
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Tue, 30 Jun 2015 15:18:24 +0100
+
+xmltv (0.5.64-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream release
+    - added new grabbers: uk_atlas, uk_guardian, uk_tvguide
+    - removed non-functional grabbers: dk_dr, in, na_icons
+    - tv_grab_huro: fixes for source site changes
+    - added new utilities: tv_count, tv_merge
+
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Tue, 30 Jun 2015 14:41:59 +0100
 
 xmltv (0.5.63-2) unstable; urgency=low
 

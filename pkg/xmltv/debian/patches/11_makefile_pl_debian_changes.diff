@@ -4,12 +4,10 @@ Description: Debian-specific changes to Makefile.PL
  Added more modules to the list of manpages to generate
 Forwarded: not-needed
 Author: Chris Butler <chrisb@debian.org>
-Last-Update: 2010-04-20
+Last-Update: 2015-08-26
 
-Index: xmltv-0.5.67/Makefile.PL
-===================================================================
---- xmltv-0.5.67.orig/Makefile.PL	2015-08-25 04:53:23.000000000 +0100
-+++ xmltv-0.5.67/Makefile.PL	2015-08-29 16:42:03.143588162 +0100
+--- a/Makefile.PL
++++ b/Makefile.PL
 @@ -88,7 +88,10 @@
       # MakeMaker versions.
       INSTALLMAN1DIR  => "$location/share/man/man1",

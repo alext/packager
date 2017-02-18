@@ -1,0 +1,49 @@
+Description: Patch source tests to make them autopkgtest-able
+Author: Nick Morrott <knowledgejunkie@gmail.com>
+Forwarded: not-needed
+Last-Update: 2017-01-24
+---
+--- a/t/test_filters.t
++++ b/t/test_filters.t
+@@ -29,7 +29,7 @@
+ 
+ my $tests_dir = 't/data';     # directory test files live in
+ die "no directory $tests_dir" if not -d $tests_dir;
+-my $cmds_dir = 'blib/script'; # directory filter programs live in
++my $cmds_dir = $ENV{ADTTMP} ? '/usr/bin' : 'blib/script'; # directory filter programs live in
+ die "no directory $cmds_dir" if not -d $cmds_dir;
+ my $verbose = 0;
+ 
+--- a/t/test_tv_imdb.t
++++ b/t/test_tv_imdb.t
+@@ -23,7 +23,7 @@
+ 
+ my $tests_dir = 't/data-tv_imdb'; # where to find input XML files
+ die "no directory $tests_dir" if not -d $tests_dir;
+-my $cmds_dir = 'blib/script'; # directory tv_split lives in
++my $cmds_dir = $ENV{ADTTMP} ? '/usr/bin' : 'blib/script'; # directory tv_split lives in
+ die "no directory $cmds_dir" if not -d $cmds_dir;
+ my $verbose = 0;
+ 
+--- a/t/test_tv_split.t
++++ b/t/test_tv_split.t
+@@ -23,7 +23,7 @@
+ 
+ my $tests_dir = 't/data'; # where to find input XML files
+ die "no directory $tests_dir" if not -d $tests_dir;
+-my $cmds_dir = 'blib/script'; # directory tv_split lives in
++my $cmds_dir = $ENV{ADTTMP} ? '/usr/bin' : 'blib/script'; # directory tv_split lives in
+ die "no directory $cmds_dir" if not -d $cmds_dir;
+ my $verbose = 0;
+ 
+--- a/t/test_tv_augment.t
++++ b/t/test_tv_augment.t
+@@ -25,7 +25,7 @@
+ 
+ my $tests_dir = 't/data-tv_augment'; # where to find input XML files
+ die "no directory $tests_dir" if not -d $tests_dir;
+-my $cmds_dir = 'blib/script'; # directory tv_augment lives in
++my $cmds_dir = $ENV{ADTTMP} ? '/usr/bin' : 'blib/script'; # directory filter programs live in
+ die "no directory $cmds_dir" if not -d $cmds_dir;
+ my $verbose = 0;
+ 

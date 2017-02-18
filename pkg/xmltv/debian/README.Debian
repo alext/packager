@@ -83,7 +83,7 @@ alternative, such as the SOAP feed that Zap2it provides (tv_grab_na_dd).
 In any case, the upstream XMLTV maintainer (Ed Avis) has made a policy of not
 antagonizing content providers.  If a content provider makes it clear that they
 don't like a grabber (either by blocking it or by contacting someone about it),
-then Ed will stop distributing the grabber as part of the XMLTV distibution.
+then Ed will stop distributing the grabber as part of the XMLTV distribution.
 This is a policy that I agree with and fully support.
 
 There are also other grabbers "in the wild" that are technically compatible
