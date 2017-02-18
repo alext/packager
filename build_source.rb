@@ -3,6 +3,7 @@
 require 'open3'
 require 'pathname'
 require 'open-uri'
+require 'tmpdir'
 
 class Changelog
   def initialize(path)
@@ -99,13 +100,20 @@ class Package
     if @extracted_pkg_dir.exist?
       @extracted_pkg_dir.rmtree
     end
-    @extracted_pkg_dir.mkpath
 
-    output, status = Open3.capture2e('tar', '--strip-components=1', '-xf', @tarfile.to_s, :chdir => @extracted_pkg_dir)
-    unless status.success?
-      $stderr.puts "Tar extraction failed : #{status.exitstatus}"
-      $stderr.puts output
-      exit 1
+    Dir.mktmpdir("extract", @pkg_build_dir) do |tmpdir|
+      output, status = Open3.capture2e('tar', '-xf', @tarfile.to_s, :chdir => tmpdir)
+      unless status.success?
+        $stderr.puts "Tar extraction failed : #{status.exitstatus}"
+        $stderr.puts output
+        exit 1
+      end
+      extracted_dirs = Dir["#{tmpdir}/*"]
+      unless extracted_dirs.size == 1
+        $stderr.puts "Multiple top-level entries in tar : #{extracted_dirs.inspect}"
+        exit 1
+      end
+      FileUtils.mv(extracted_dirs.first, @extracted_pkg_dir)
     end
   end
 
