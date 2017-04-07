@@ -1,7 +1,8 @@
 Source: golang-X.Y
 Section: devel
 Priority: optional
-Maintainer: Go Compiler Team <pkg-golang-devel@lists.alioth.debian.org>
+Maintainer: Alex Tomlins <alex@tomlins.org.uk>
+XSBC-Original-Maintainer: Go Compiler Team <pkg-golang-devel@lists.alioth.debian.org>
 Uploaders: Michael Stapelberg <stapelberg@debian.org>,
            Paul Tagliamonte <paultag@debian.org>,
            Tianon Gravi <tianon@debian.org>,
