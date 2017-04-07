@@ -1,3 +1,9 @@
+golang-1.8 (1.8.1-1~ppa1) xenial; urgency=medium
+
+  * New upstream release
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Fri, 07 Apr 2017 22:11:14 +0100
+
 golang-1.8 (1.8-2~ppa1) xenial; urgency=medium
 
   * Backport to Xenial
