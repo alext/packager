@@ -1,3 +1,9 @@
+temperature-monitor (0-55-gca7b239-1) xenial; urgency=medium
+
+  * Upgrade to Go 1.8.1
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Sat, 08 Apr 2017 09:17:28 +0100
+
 temperature-monitor (0-53-g3793881-1) xenial; urgency=medium
 
   * Support for push update sensors.
