@@ -18,7 +18,7 @@ EOM
   chmod +x /etc/profile.d/quilt.sh
 fi
 
-if ! grep -q DEBFULLNAME /home/vagrant/.bashrc; then
+if ! grep -q DEBFULLNAME /home/ubuntu/.bashrc; then
   echo "---> Make sure you add your Launchpad name and email to your environment! For example:" >&2
   cat 2>&1 <<EEOM
 tee -a ~/.bashrc >/dev/null <<EOM
@@ -28,7 +28,7 @@ EOM
 EEOM
 fi
 
-if [ "$(sudo -u vagrant gpg --list-secret-keys 2>/dev/null | wc -l)" -eq "0" ]; then
+if [ "$(sudo -u ubuntu gpg --list-secret-keys 2>/dev/null | wc -l)" -eq "0" ]; then
   echo "---> Make sure you import a GPG secret key that you have registered on Launchpad! For example:" >&2
   cat 2>&1 <<EOM
 gpg --import <joe_bloggs.asc
