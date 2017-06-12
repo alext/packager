@@ -13,6 +13,9 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb|
     vb.customize [ "modifyvm", :id, "--memory", MEMSIZE, "--cpus", NCPU ]
     vb.customize ["modifyvm", :id, "--rtcuseutc", "on"]
+
+    # Disable creation of console log in pwd (https://groups.google.com/forum/#!topic/vagrant-up/eZljy-bddoI)
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
   end
 
   config.vm.synced_folder ".", "/home/ubuntu/packager"
