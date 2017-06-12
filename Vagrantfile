@@ -14,12 +14,6 @@ Vagrant.configure("2") do |config|
     vb.customize [ "modifyvm", :id, "--memory", MEMSIZE, "--cpus", NCPU ]
     vb.customize ["modifyvm", :id, "--rtcuseutc", "on"]
   end
-  config.vm.provider :vmware_fusion do |f, override|
-    override.vm.box = "precise64_vmware_fusion"
-    override.vm.box_url = "http://files.vagrantup.com/precise64_vmware_fusion.box"
-    f.vmx["memsize"] = MEMSIZE
-    f.vmx["numvcpus"] = NCPU
-  end
 
   config.vm.synced_folder ".", "/home/vagrant/packager"
 
