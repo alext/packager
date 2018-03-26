@@ -1,3 +1,9 @@
+mythtv-theme-arclight (28.01-1~alext2) xenial; urgency=medium
+
+  * Patch to show recording length in recordings view
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Mon, 26 Mar 2018 17:54:09 +0100
+
 mythtv-theme-arclight (28.01-1~alext1) xenial; urgency=medium
 
   * Initial packaging of Arclight theme.

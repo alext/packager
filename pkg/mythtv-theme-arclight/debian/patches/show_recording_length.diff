@@ -1,0 +1,14 @@
+Description: Show recording length in recordings list.
+
+Index: mythtv-theme-arclight-28.01/base.xml
+===================================================================
+--- mythtv-theme-arclight-28.01.orig/base.xml
++++ mythtv-theme-arclight-28.01/base.xml
+@@ -437,6 +437,7 @@
+                     <align>right,vcenter</align>
+                     <font>basesmall</font>
+                     <alpha>210</alpha>
++                    <template>%STARTDATE%, %STARTTIME% (%LENMINS%)</template>
+                 </textarea>
+                 <statetype name="videoprops">
+                     <showempty>yes</showempty>
