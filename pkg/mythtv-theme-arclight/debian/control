@@ -1,0 +1,12 @@
+Source: mythtv-theme-arclight
+Section: graphics
+Priority: optional
+Maintainer: Alex Tomlins <alex@tomlins.org.uk>
+Build-Depends: debhelper (>=9)
+Standards-Version: 3.9.6
+Homepage: https://github.com/MythTV-Themes/Arclight
+
+Package: mythtv-theme-arclight
+Architecture: all
+Depends: ${misc:Depends}, mythtv-common
+Description: Arclight theme for MythTV

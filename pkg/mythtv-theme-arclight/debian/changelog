@@ -1,0 +1,5 @@
+mythtv-theme-arclight (28.01-1~alext1) xenial; urgency=medium
+
+  * Initial packaging of Arclight theme.
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Mon, 26 Mar 2018 16:49:07 +0100
