@@ -1,0 +1,25 @@
+
+Index: sshuttle/sshuttle/linux.py
+===================================================================
+--- a/sshuttle/linux.py	2018-12-04 13:57:38.956939197 +0000
++++ b/sshuttle/linux.py	2018-12-04 15:26:02.739084232 +0000
+@@ -23,14 +23,12 @@
+         'PATH': os.environ['PATH'],
+         'LC_ALL': "C",
+     }
+-    p = ssubprocess.Popen(argv, stdout=ssubprocess.PIPE, env=env)
+-    for line in p.stdout:
+-        if line.startswith(b'Chain %s ' % name.encode("ASCII")):
++    completed = ssubprocess.run(argv, stdout=ssubprocess.PIPE, env=env, encoding='ASCII')
++    if completed.returncode:
++        raise Fatal('%r returned %d' % (argv, completed.returncode))
++    for line in completed.stdout.split('\n'):
++        if line.startswith('Chain %s ' % name):
+             return True
+-    rv = p.wait()
+-    if rv:
+-        raise Fatal('%r returned %d' % (argv, rv))
+-
+ 
+ def ipt(family, table, *args):
+     if family == socket.AF_INET6:

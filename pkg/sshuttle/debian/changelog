@@ -1,3 +1,9 @@
+sshuttle (0.78.3-1ubuntu1alext1) bionic; urgency=medium
+
+  * Fix for iptables hang with large routing table
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Tue, 04 Dec 2018 16:06:40 +0000
+
 sshuttle (0.78.3-1ubuntu1) bionic; urgency=medium
 
   * Make hostwatch find both fqdn and hostname (LP: #1787245)
