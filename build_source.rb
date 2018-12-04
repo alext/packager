@@ -131,8 +131,8 @@ class Package
   def debuild(debuild_args)
     puts "=> debuild"
     command = %w(debuild -S)
-    if @debuild_args
-      command += @debuild_args.split(/\s+/)
+    if debuild_args
+      command += debuild_args.split(/\s+/)
     end
     exec *command, :chdir => @extracted_pkg_dir
 
