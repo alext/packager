@@ -1,0 +1,182 @@
+sshuttle (0.78.3-1ubuntu1) bionic; urgency=medium
+
+  * Make hostwatch find both fqdn and hostname (LP: #1787245)
+    - d/p/make-hostwatch-find-fqdn-and-hostname.patch: cherry-pick
+      patch from upstream to add both the FQDN and the hostname
+      so they are both resolvable.
+
+ -- Billy Olsen <billy.olsen@canonical.com>  Wed, 29 Aug 2018 15:00:55 -0700
+
+sshuttle (0.78.3-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Set standards version to 4.0.0.
+  * Update debhelper compat version to 9.
+
+ -- Brian May <bam@debian.org>  Sun, 09 Jul 2017 09:29:39 +1000
+
+sshuttle (0.78.1-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Set maintainer to myself.
+  * Update debian standards version to 3.9.8
+  * Fix upstream changelog. Closes: #812976.
+
+ -- Brian May <bam@debian.org>  Sat, 06 Aug 2016 21:03:40 +1000
+
+sshuttle (0.78.0-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Brian May <bam@debian.org>  Fri, 08 Apr 2016 12:10:24 +1000
+
+sshuttle (0.77.2-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Brian May <bam@debian.org>  Mon, 07 Mar 2016 10:07:12 +1100
+
+sshuttle (0.76-1) unstable; urgency=medium
+
+  * New upstream release.
+  * New sphinx documentation.
+
+ -- Brian May <bam@debian.org>  Sun, 17 Jan 2016 19:13:24 +1100
+
+sshuttle (0.75-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Upload to debian unstable now Python3.5 is the default.
+
+ -- Brian May <bam@debian.org>  Tue, 12 Jan 2016 12:37:35 +1100
+
+sshuttle (0.74-1) experimental; urgency=medium
+
+  * New upstream release.
+
+ -- Brian May <bam@debian.org>  Sun, 10 Jan 2016 10:17:37 +1100
+
+sshuttle (0.73-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Package requires Python3.5.
+
+ -- Brian May <bam@debian.org>  Fri, 04 Dec 2015 11:41:48 +1100
+
+sshuttle (0.71-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Add dh-python to Build-Depends
+  * debian/patches/fix_sshuttle_call.diff: Add new patch to fix the call to
+    sshuttle to make it work properly (Closes: #790893)
+
+ -- Javier Fernández-Sanguino Peña <jfs@debian.org>  Sat, 04 Jul 2015 13:22:27 +0200
+
+sshuttle (0.70-1) unstable; urgency=medium
+
+  * Upgrade to release 0.70 (Closes: #682918)
+  * Add debian/patches/add_version_date_to_manpage.diff and
+    debian/patches/move_documentation.diff to add a tag for version and date
+    in the manpage and move it to the expected location.
+  * Add debian/patches/merge_source_060.diff with the patch from the merge
+    of the new upsteam release with the previous version 0.61 (to be reviewed)
+  * Add debian/patches/prevent_hostname_leak.diff to ensure that the 
+    permissions of temporary files are set to 0600 to prevent sensitive
+    information from being leaked under some circumstances (Closes: 760886)
+  * debian/install: Adjust the location of the Python files with the new
+    upstream release. Also add the files provided in the packaging/ directory
+    upstream (except for the service file, which is provided as an example)
+  * debian/sshuttle.dirs: Create the same directories as those generated
+    by sshuttle's packaging script 'make_deb'
+  * debian/sshuttle.docs: Provide the service script as an example for users
+    to review before deploying
+  * debian/README.Debian: document that an example service file is now
+    provided
+  * debian/control: 
+       + Update Homepage location
+       + Suggest 'autossh' as upstream does
+       + Update Standards-Version, no changes needed
+  * debian/watch: Update watch file with suggested changes from PTS and
+    updating the URL to the latest upstream
+  * debian/copyright: Adjust location of files based on the new upstream
+    directory setup, fix a lintian warning (short license name) and 
+    add licensing for the packaging/ subdir
+
+ -- Javier Fernández-Sanguino Peña <jfs@debian.org>  Tue, 30 Jun 2015 22:41:21 +0200
+
+sshuttle (0.61-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #682918).
+  * Update watch file.
+  * Update copyright file.
+  * Bump Standards-Version to 3.9.3. No changes were required.
+  * Remove debian/patches/manpage.diff since it was merged upstream.
+
+ -- Miguel Landaeta <miguel@miguel.cc>  Fri, 27 Jul 2012 19:53:04 -0430
+
+sshuttle (0.54-2) unstable; urgency=low
+
+  * debian/rules: Post-process pandoc result since it converts double dashes
+   to emphasized output and this is not rendered properly in the manpage
+   (Closes: #666265)
+
+ -- Javier Fernández-Sanguino Peña <jfs@debian.org>  Sat, 31 Mar 2012 11:25:25 +0200
+
+sshuttle (0.54-1) unstable; urgency=low
+
+  * New upstream release.
+  * Add myself as co-maintainer.
+  * Remove unnecessary README.source.
+  * Document the fact that manpage.diff patch was forwarded to upstream.
+  * Wrap long lines of README.Debian.
+  * Remove unused patches.
+
+ -- Miguel Landaeta <miguel@miguel.cc>  Sun, 24 Jul 2011 21:25:25 +0200
+
+sshuttle (0.53-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream release (Closes: #620914).
+  * Migrate from dh_pysupport to dh_python2 helper and add B-D on python.
+  * Add X-Python-Version: >= 2.4 to indicate minimal Python version expected.
+  * Make copyright file DEP-5 compliant.
+  * Add watch file and implement get-orig-source to pull tarball from Github.
+  * Bump Standards-Version to 3.9.2. No changes were required.
+  * Add useful files to use with debhelper: clean, install and manpages.
+  * Add patch to document missing flag in manpage.
+  * Drop manpage from Debian in favor of the one provided by upstream.
+  * Update Homepage and Vcs-* fields. Vcs-* field should point to Debian
+    packaging repositories.
+  * Disabled debian-changes* patches since they don't apply cleanly anymore.
+    They weren't dropped because I don't know if upstream solved those issues.
+
+ -- Miguel Landaeta <miguel@miguel.cc>  Tue, 31 May 2011 21:28:52 -0430
+
+sshuttle (0.43a-1) unstable; urgency=low
+
+  * New upstream version with patches from GIT
+     - Fixes file descriptors leak after a long run (Closes: 607067)
+     - Clear up upstream patches and sync (Closes: 607069)
+  * debian/patches:
+     - Remove debian-changes-0.42-1
+     - Refresh debian-changes-0.42-2
+     - Add debian-changes-0.43a-1: changes introduced in the GIT repository after the
+       0.43a release
+
+ -- Javier Fernandez-Sanguino Pen~a <jfs@debian.org>  Mon, 20 Dec 2010 13:12:00 +0100
+
+sshuttle (0.42-2) unstable; urgency=low
+
+  * Update to upstream's latest version
+  * Include pandoc in Build-Depends as it is now required to build
+    the manpage
+  * Install upstream's manpage instead of our own.
+
+ -- Javier Fernandez-Sanguino Pen~a <jfs@debian.org>  Wed, 17 Nov 2010 01:32:22 +0100
+
+sshuttle (0.42-1) unstable; urgency=low
+
+  * Initial release (Closes: 601626)
+  * Write manpage for the Debian release
+
+ -- Javier Fernandez-Sanguino Pen~a <jfs@debian.org>  Wed, 27 Oct 2010 02:50:49 +0200

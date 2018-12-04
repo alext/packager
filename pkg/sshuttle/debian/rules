@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=sshuttle
+
+%:
+	dh $@ --with python3,sphinxdoc --buildsystem=pybuild
+
+.PHONY: override_dh_sphinxdoc
+override_dh_sphinxdoc:
+#ifeq (,$(findstring nodocs, $(DEB_BUILD_OPTIONS)))
+	PYTHONPATH=. sphinx-build -b html -d docs/.build/.doctrees -N docs debian/sshuttle/usr/share/doc/sshuttle/html
+	PYTHONPATH=. sphinx-build -b man -d docs/.build/.doctrees -N docs debian/sshuttle/usr/share/man/man1
+	dh_sphinxdoc
+#endif
+
+override_dh_auto_test:
+	PYTHONPATH=. \
+	    dh_auto_test -- --system=custom --test-args="{interpreter} -m pytest"
+
+.PHONY: override_dh_clean
+override_dh_clean:
+	dh_clean
+	rm -rf tmp
+	rm -rf docs/.build docs/_build
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGES.rst

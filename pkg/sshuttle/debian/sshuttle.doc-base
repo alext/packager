@@ -1,0 +1,9 @@
+Document: sshuttle
+Title: Sshuttle Documentation
+Author: Brian May
+Abstract: This documents sshuttle
+Section: System/Administration
+
+Format: HTML
+Index: /usr/share/doc/sshuttle/html/index.html
+Files: /usr/share/doc/sshuttle/html/*.html

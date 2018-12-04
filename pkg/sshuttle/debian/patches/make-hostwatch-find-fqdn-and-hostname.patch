@@ -1,0 +1,74 @@
+Description: Make hostwatch find both fqdn and hostname
+
+Currently hostwatch only adds hostnames even when FQDNs are available.
+This commit changes found_host so that when the name is a FQDN, both the FQDN
+and an hostname are added, e.g., given api.foo.com both api and api.foo.com
+will be added.
+
+Fixes #151 if merged.
+
+N.B.: I rarely use hostwatch, it would probably be a good idea to get feedback
+from people who actually use it before merging. Not too sure about this...
+
+Author: vieira <vieira@yubo.be>
+Origin: upstream, https://github.com/sshuttle/sshuttle/commit/29cd75b6f7da3dd8b6011c4083aa217684a4c716.patch
+Bug: https://github.com/sshuttle/sshuttle/issues/151
+Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/sshuttle/+bug/1787245
+---
+ sshuttle/client.py    |  2 +-
+ sshuttle/hostwatch.py | 20 ++++++++++++--------
+ 2 files changed, 13 insertions(+), 9 deletions(-)
+
+Index: sshuttle-0.78.3/sshuttle/client.py
+===================================================================
+--- sshuttle-0.78.3.orig/sshuttle/client.py
++++ sshuttle-0.78.3/sshuttle/client.py
+@@ -286,7 +286,7 @@ class FirewallClient:
+             raise Fatal('%r expected STARTED, got %r' % (self.argv, line))
+ 
+     def sethostip(self, hostname, ip):
+-        assert(not re.search(b'[^-\w]', hostname))
++        assert(not re.search(b'[^-\w\.]', hostname))
+         assert(not re.search(b'[^0-9.]', ip))
+         self.pfile.write(b'HOST %s,%s\n' % (hostname, ip))
+         self.pfile.flush()
+Index: sshuttle-0.78.3/sshuttle/hostwatch.py
+===================================================================
+--- sshuttle-0.78.3.orig/sshuttle/hostwatch.py
++++ sshuttle-0.78.3/sshuttle/hostwatch.py
+@@ -61,23 +61,27 @@ def read_host_cache():
+         words = line.strip().split(',')
+         if len(words) == 2:
+             (name, ip) = words
+-            name = re.sub(r'[^-\w]', '-', name).strip()
++            name = re.sub(r'[^-\w\.]', '-', name).strip()
+             ip = re.sub(r'[^0-9.]', '', ip).strip()
+             if name and ip:
+                 found_host(name, ip)
+ 
+ 
+-def found_host(hostname, ip):
+-    hostname = re.sub(r'\..*', '', hostname)
+-    hostname = re.sub(r'[^-\w]', '_', hostname)
++def found_host(name, ip):
++    hostname = re.sub(r'\..*', '', name)
++    hostname = re.sub(r'[^-\w\.]', '_', hostname)
+     if (ip.startswith('127.') or ip.startswith('255.') or
+             hostname == 'localhost'):
+         return
+-    oldip = hostnames.get(hostname)
++
++    if hostname != name:
++        found_host(hostname, ip)
++
++    oldip = hostnames.get(name)
+     if oldip != ip:
+-        hostnames[hostname] = ip
+-        debug1('Found: %s: %s\n' % (hostname, ip))
+-        sys.stdout.write('%s,%s\n' % (hostname, ip))
++        hostnames[name] = ip
++        debug1('Found: %s: %s\n' % (name, ip))
++        sys.stdout.write('%s,%s\n' % (name, ip))
+         write_host_cache()
+ 
+ 

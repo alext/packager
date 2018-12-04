@@ -1,0 +1,29 @@
+Source: sshuttle
+Section: net
+Priority: extra
+Maintainer: Brian May <bam@debian.org>
+Build-Depends: debhelper (>= 9), dh-python,
+    python3-all, python3-setuptools, python3-pytest, python3-mock,
+    python-pytest-runner,
+    python3-sphinx (>= 1.0.7+dfsg-1~), python3-setuptools-scm,
+    python3-pytest-runner,
+Standards-Version: 4.0.0
+X-Python-Version: >= 2.7
+X-Python3-Version: >= 3.5
+Homepage: https://github.com/sshuttle/sshuttle
+Vcs-Git: git://git.debian.org/collab-maint/sshuttle.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/sshuttle.git
+
+Package: sshuttle
+Architecture: all
+Depends: iptables, openssh-client | lsh-client | dropbear | ssh-client,
+    python3-pkg-resources, ${python3:Depends}, ${misc:Depends}
+Recommends: sudo
+Suggests: autossh
+Description: Transparent proxy server for VPN over SSH
+ Sshuttle makes it possible to access remote networks using SSH. It creates a
+ transparent proxy server, using iptables, that will forward all the traffic
+ through an SSH tunnel to a remote copy of sshuttle.
+ .
+ It does not require installation on the remote server, which just needs to
+ have Python installed.

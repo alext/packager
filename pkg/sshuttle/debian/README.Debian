@@ -1,0 +1,16 @@
+sshuttle for Debian
+-------------------
+
+The sshuttle package in Debian does not provide, on purpose, any service to
+start up a VPN tunnel. Users of sshuttle (with administrative privileges in the
+local system) have to manually startup sshuttle.
+
+For your convenience, there is an example configuration file under
+/usr/share/doc/sshuttle/sshuttle.conf 
+
+You can adjust the above file and drop it in your /etc/init/ configuration
+directory to have the system automatically start sstunnel as a service 
+
+ -- Javier Fernandez-Sanguino <jfs@debian.org> Tue, 30 Jun 2015 23:12:28 +0200
+
+

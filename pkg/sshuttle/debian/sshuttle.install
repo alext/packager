@@ -1,0 +1,2 @@
+debian/prefixes.conf  etc/sshuttle
+debian/tunnel.conf    etc/sshuttle
