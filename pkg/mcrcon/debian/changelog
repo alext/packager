@@ -1,0 +1,5 @@
+mcrcon (0.6.1-1) bionic; urgency=medium
+
+  * Initial packaging
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Tue, 26 Nov 2019 19:51:13 +0000

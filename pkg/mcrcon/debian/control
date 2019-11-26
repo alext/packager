@@ -1,0 +1,12 @@
+Source: mcrcon
+Section: games
+Priority: optional
+Maintainer: Alex Tomlins <alex@tomlins.org.uk>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Homepage: https://github.com/Tiiffi/mcrcon
+
+Package: mcrcon
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Rcon client for Minecraft
