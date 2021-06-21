@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+SRCDIR=$(dirname $(realpath $0))
+
+if [ -n "${DEB_HOST_GNU_TYPE:-}" ]; then
+    CROSS_COMPILE="$DEB_HOST_GNU_TYPE-"
+else
+    CROSS_COMPILE=
+fi
+
+cd $AUTOPKGTEST_TMP
+${CROSS_COMPILE}gcc -Wall -Werror -Wno-deprecated-declarations -std=c99 -o poppler-glib-test $SRCDIR/test-glib.c `${CROSS_COMPILE}pkg-config --cflags --libs poppler-glib`
+./poppler-glib-test "file:///usr/share/cups/data/default-testpage.pdf"

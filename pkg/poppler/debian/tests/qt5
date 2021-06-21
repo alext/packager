@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+SRCDIR=$(dirname $(realpath $0))
+
+if [ -n "${DEB_HOST_GNU_TYPE:-}" ]; then
+    CROSS_COMPILE="$DEB_HOST_GNU_TYPE-"
+else
+    CROSS_COMPILE=
+fi
+
+cd $AUTOPKGTEST_TMP
+${CROSS_COMPILE}g++ -Wall -Werror -pedantic -Wno-long-long -Wno-deprecated-declarations -fPIC -std=c++11 -o poppler-qt5-test $SRCDIR/test-qt5.cpp `${CROSS_COMPILE}pkg-config --cflags --libs poppler-qt5 Qt5Core`
+./poppler-qt5-test "/usr/share/cups/data/default-testpage.pdf"

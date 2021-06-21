@@ -1,0 +1,8 @@
+Tests: cpp
+Depends: build-essential, pkg-config, libpoppler-cpp-dev, cups-filters:native
+
+Tests: glib
+Depends: build-essential, pkg-config, libpoppler-glib-dev, cups-filters:native
+
+Tests: qt5
+Depends: build-essential, pkg-config, libpoppler-qt5-dev, cups-filters:native

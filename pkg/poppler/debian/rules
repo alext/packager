@@ -1,0 +1,64 @@
+#!/usr/bin/make -f
+
+# the upstream version (i.e. without the Debian revision)
+UPSTREAM_VERSION := $(shell dpkg-parsechangelog | sed -n 's/^Version: //p' | cut -f1 -d '-')
+# symbols.in files & their "generated" file names
+SYMBOLS_in := $(wildcard debian/*.symbols.in)
+SYMBOLS_generated := $(patsubst %.in,%,$(SYMBOLS_in))
+
+libpopplerN := $(shell sed -rn 's/^Package:[[:space:]]*(libpoppler[0-9]+)[[:space:]]*$$/\1/p' debian/control)
+
+# avoid overlinking and reduce library dependencies
+export DEB_LDFLAGS_MAINT_APPEND := -Wl,--as-needed
+
+# enable all the hardening options
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# DEB_* variables
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+# disable gtk stuff to minimize Build-Depends
+CONFIGURE_ARGS :=				\
+	-DCMAKE_BUILD_TYPE=Release		\
+	-DCMAKE_C_FLAGS_RELEASE="$(CFLAGS)"	\
+	-DCMAKE_CXX_FLAGS_RELEASE="$(CXXFLAGS)"	\
+	-DCMAKE_INSTALL_LIBDIR="lib/$(DEB_HOST_MULTIARCH)" \
+	-DENABLE_GLIB=ON			\
+	-DENABLE_QT5=ON				\
+	-DENABLE_CPP=ON				\
+	-DENABLE_GTK_DOC=ON			\
+	-DENABLE_UNSTABLE_API_ABI_HEADERS=ON	\
+	-DENABLE_CMS=lcms2			\
+	-DENABLE_LIBOPENJPEG=openjpeg2		\
+	-DBUILD_GTK_TESTS=OFF
+
+%:
+	dh $@ --with gir
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f glib/reference/html/*
+	rm -f $(SYMBOLS_generated)
+
+override_dh_autoreconf:
+	dh_autoreconf --as-needed
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(CONFIGURE_ARGS)
+
+override_dh_missing:
+	dh_missing --fail-missing
+
+override_dh_installchangelogs:
+	dh_installchangelogs -p$(libpopplerN)
+	dh_installchangelogs --remaining-packages -XChangeLog
+
+override_dh_makeshlibs: $(SYMBOLS_generated)
+	dh_makeshlibs -p$(libpopplerN) -V
+	dh_makeshlibs -plibpoppler-cpp0v5 -V"libpoppler-cpp0v5 (>= 0.46.0)"
+	dh_makeshlibs --remaining-packages
+
+debian/%.symbols: debian/%.symbols.in
+	cat $^ | sed -e 's/#CURVER#/$(UPSTREAM_VERSION)/g' > $@
+
+.PHONY: override_dh_auto_test

@@ -1,0 +1,6 @@
+Name: poppler
+Homepage: http://poppler.freedesktop.org/
+Bug-Database: https://bugs.freedesktop.org/buglist.cgi?bug_status=__open__&content=&product=poppler&query_format=specific&order=bug_id%20DESC&query_based_on=
+Bug-Submit: https://bugs.freedesktop.org/enter_bug.cgi?product=poppler
+Repository: git://git.freedesktop.org/git/poppler/poppler
+Repository-Browse: http://cgit.freedesktop.org/poppler/poppler
