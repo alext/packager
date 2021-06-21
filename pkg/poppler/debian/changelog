@@ -1,3 +1,9 @@
+poppler (21.06.0-0ubuntu1~ppa1) focal; urgency=medium
+
+  * Backport to focal
+
+ -- Alex Tomlins <alex@tomlins.org.uk>  Mon, 21 Jun 2021 14:33:57 +0100
+
 poppler (21.06.0-0build1) impish; urgency=medium
 
   * New upstream version, updated for the soname change
