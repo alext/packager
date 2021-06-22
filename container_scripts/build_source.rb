@@ -39,7 +39,7 @@ end
 
 class Package
   def initialize(path)
-    @build_dir = Pathname.new(File.dirname(__FILE__)).join("build").expand_path
+    @build_dir = Pathname.new(File.dirname(__FILE__)).join("..").join("build").expand_path
     @pkg_dir = Pathname.new(path)
     @url = File.read(@pkg_dir.join('srcurl')).strip
 
@@ -134,9 +134,12 @@ class Package
     if debuild_args
       command += debuild_args.split(/\s+/)
     end
-    exec *command, :chdir => @extracted_pkg_dir
-
-    # Never returns
+    result = system *command, :chdir => @extracted_pkg_dir
+    if result
+      relative_build_dir = @pkg_build_dir.relative_path_from(Pathname.new('.').expand_path)
+      puts "=> Packages built in #{relative_build_dir}"
+    end
+    result
   end
 end
 
@@ -153,9 +156,10 @@ def main
   end
 
   pkg = Package.new(pkg_dir)
-  retcode = pkg.make(ENV['DEBUILD_ARGS'])
-  puts pkg.inspect
-  exit retcode
+
+  unless pkg.make(ENV['DEBUILD_ARGS'])
+    exit 1
+  end
 end
 
 if __FILE__ == $0
